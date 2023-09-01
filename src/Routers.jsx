@@ -1,16 +1,19 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Route, Routes } from "react-router-dom";
-import { HomeScreen } from './screens.js';
+import { HomeScreen, ProfileScreen } from './screens/index.js';
+import RequireAuth  from "./shared/components/RequireAuth/RequireAuth.jsx";
+import { LoggedContext } from './shared/contexts/JwtContext.js';
 
 function Routers() {
+  const { userData, setUserData } = useContext(LoggedContext);
   return (
     <div>
         <Routes>
           <Route path="/home" element={<HomeScreen/>} /> {/*Home puede tener login*/}
           <Route path="/login" element={<HomeScreen/>} />
           <Route path="/register" element={<HomeScreen/>} />
-          <Route path="/user" element={<HomeScreen/>} /> {/*Edit del perfil de usuario o de worker*/}
-          <Route path="/user/:id" element={<HomeScreen/>} /> {/*Usuario o de worker*/}
+          <Route path="/profile" element={<RequireAuth><ProfileScreen/></RequireAuth> } /> Ver perfil de usuario
+          <Route path={`/profile/${userData?._id}`}element={<RequireAuth><ProfileScreen/></RequireAuth> } /> {/*Editar usuario*/}
           <Route path="/comment" element={<HomeScreen/>} /> {/*Ver comentarios y valoraciones sobre el trabajador*/}
           <Route path="/comment/:id/addComment" element={<HomeScreen/>} /> {/*Editar comentarios que has hecho sobre otro trabajador*/}
           <Route path="/company" element={<HomeScreen/>} /> {/*Perfil de companyr*/}

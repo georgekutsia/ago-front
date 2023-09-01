@@ -1,16 +1,21 @@
-import React from 'react'
-        
+import React, { useContext } from 'react'
+import { logout } from "../../shared/services/api";
 import { Menubar } from "primereact/menubar";
-import { InputText } from "primereact/inputtext";
+import { LoggedContext } from '../../shared/contexts/JwtContext';
+import { useNavigate } from 'react-router-dom';
 export default function NavbarComponent() {
+  const { userData, setUserData } = useContext(LoggedContext);
+  const navigation = useNavigate();
+
    const items = [
      {
        label: "Cuenta",
        icon: "pi pi-fw pi-user",
        items: [
          {
-           label: "Nueva",
+           label: "Perfil",
            icon: "pi pi-fw pi-user-plus",
+           url:"/profile"
          },
          {
            label: "Editar",
@@ -104,21 +109,39 @@ export default function NavbarComponent() {
            ],
          },
        ],
-     },
+      },
+      
+    ];
+    const handleLogout = () => {
+      logout();
+      setUserData(false);
+      navigation("/company");
+    };
+    const navigateToLogin = () => {
 
-   ];
+      navigation("/home");
+    };
     const end = (
-        <button className='disconect-btn'> <i class="fa-solid fa-power-off"></i></button>
+      <div className='navbar-name'>
+      {userData && 
+      <>
+      <p>{userData.name}</p>
+      <button  onClick={handleLogout} className='disconect-btn'> <i className="fa-solid fa-power-off"></i></button>
+      </>
+      }
+      {!userData &&
+      <button  onClick={navigateToLogin} className='disconect-btn'> <i className="fa-solid fa-right-to-bracket"></i></button>
+      }
+      </div>
     );
     const start = (
+      <>
       <img  alt="logo" src="https://res.cloudinary.com/dxnzcewsy/image/upload/v1693440093/proyecto%20final/logo_ago.png" height="40" className="logo-img"></img>
+      </>
     );
-
-    
   return (
     <div>
-      <Menubar model={items}  end={end}  start={start} className="navbar" />
+      <Menubar model={items} end={end} start={start} className="navbar" />
     </div>
   );
 }
-        

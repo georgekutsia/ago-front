@@ -15,9 +15,6 @@ function FooterComponent() {
     {
       icon: "pi pi-fw pi-calendar",
     },
-    {
-      icon: "pi pi-fw pi-power-off",
-    },
   ];
 
   return (
