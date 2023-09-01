@@ -173,6 +173,41 @@ a {
   color: #fff;
 }
 
+.updateUser {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  justify-content: center;
+}
+
+.formDemoUpdateUser .card {
+  min-width: 450px;
+  background-color: rgb(255, 255, 255);
+}
+
+.formDemoUpdateUser .card form {
+  margin-top: 2rem;
+}
+
+.formDemoUpdateUser .card .field {
+  margin-bottom: 1.5rem;
+}
+
+@media screen and (max-width: 960px) {
+  .formDemoUpdateUser .card {
+    width: 80%;
+    padding: 0px;
+  }
+}
+@media screen and (max-width: 640px) {
+  .formDemo .card {
+    width: 100%;
+    min-width: 300px;
+    padding: 0vw;
+  }
+}
 .profile {
   padding-top: 60px;
 }/*# sourceMappingURL=main.css.map */

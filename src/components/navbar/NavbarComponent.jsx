@@ -13,8 +13,9 @@ export default function NavbarComponent() {
        icon: "pi pi-fw pi-user",
        items: [
          {
-           label: "Nueva",
+           label: "Perfil",
            icon: "pi pi-fw pi-user-plus",
+           url:"/profile"
          },
          {
            label: "Editar",

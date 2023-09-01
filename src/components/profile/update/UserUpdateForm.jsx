@@ -5,7 +5,6 @@ import { useForm, Controller } from "react-hook-form";
 import { InputText } from "primereact/inputtext";
 import { Button } from "primereact/button";
 import { Password } from "primereact/password";
-import { Checkbox } from "primereact/checkbox";
 import { Dialog } from "primereact/dialog";
 import { Divider } from "primereact/divider";
 import { classNames } from "primereact/utils";
@@ -64,18 +63,15 @@ export default function UserUpdateForm() {
     }
   };
   return (
-    <section className="register">
-      <form className="registerForm formDemo" onSubmit={handleSubmit(onSubmit)}>
+    <section className="updateUser">
+      <form className="registerForm formDemoUpdateUser" onSubmit={handleSubmit(onSubmit)}>
         <div className="flex justify-content-center">
           <div className="card">
-            <h3 className="text-center">Registrarse</h3>
+            <h3 className="text-center">Actualiza tus datos</h3>
             <div className="p-fluid">
               <div className="field">
                 <span className="p-float-label">
-                  <Controller
-                    name="name"
-                    control={control}
-                    rules={{
+                  <Controller name="name" control={control} rules={{
                       required: "Nombre es requerido.",
                       maxLength: {
                         value: 30,
@@ -88,21 +84,9 @@ export default function UserUpdateForm() {
                       },
                     }}
                     render={({ field, fieldState }) => (
-                      <InputText
-                        defaultValue={userData.name}
-                        id={field.name}
-                        {...field}
-                        autoFocus
-                        className={classNames({
-                          "p-invalid": fieldState.invalid,
-                        })}
-                      />
-                    )}
-                  />
-                  <label
-                    htmlFor="name"
-                    className={classNames({ "p-error": errors.name })}
-                  >
+                      <InputText defaultValue={userData.name} id={field.name} {...field} autoFocus className=
+                          {classNames({ "p-invalid": fieldState.invalid,})}/>)}/>
+                  <label htmlFor="name" className={classNames({ "p-error": errors.name })}>
                     {" "}
                     Nombre*
                   </label>
@@ -112,27 +96,18 @@ export default function UserUpdateForm() {
               <div className="field">
                 <span className="p-float-label p-input-icon-right">
                   <i className="pi pi-envelope" />
-                  <Controller
-                    name="email"
-                    control={control}
-                    rules={{
+                  <Controller name="email" control={control} rules={{
                       required: "Email is required.",
                       pattern: {
                         value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
-                        message:
-                          "El email es inválido. Prueba algo como: example@email.com",
+                        message: "El email es inválido. Prueba algo como: example@email.com",
                       },
                     }}
                     render={({ field, fieldState }) => (
                       <InputText
                         id={field.name}
                         {...field}
-                        className={classNames({
-                          "p-invalid": fieldState.invalid,
-                        })}
-                      />
-                    )}
-                  />
+                        className={classNames({ "p-invalid": fieldState.invalid, })}/>)}    />
                   <label
                     htmlFor="email"
                     className={classNames({ "p-error": !!errors.email })}
@@ -144,11 +119,7 @@ export default function UserUpdateForm() {
               </div>
               <div className="field">
                 <span className="p-float-label">
-                  <Controller
-                    name="password"
-                    control={control}
-                    rules={{ required: "Password is required." }}
-                    render={({ field, fieldState }) => (
+                  <Controller name="password" control={control} rules={{ required: "Password is required." }} render={({ field, fieldState }) => (
                       <Password
                         id={field.name}
                         {...field}
@@ -170,24 +141,14 @@ export default function UserUpdateForm() {
                 </span>
                 {getFormErrorMessage("password")}
               </div>
-              <Button type="submit" label="Submit" className="mt-2" />
+              <Button type="submit" label="Actualizar" className="mt-2" />
             </div>
           </div>
         </div>
       </form>
-      <Dialog
-        visible={showMessage}
-        onHide={() => setShowMessage(false)}
-        position="top"
-        footer={dialogFooter}
-        showHeader={false}
-        breakpoints={{ "960px": "80vw" }}
-        style={{ width: "30vw" }}
-      >
+      <Dialog visible={showMessage} onHide={() => setShowMessage(false)} position="top" footer={dialogFooter} showHeader={false} breakpoints={{ "960px": "80vw" }} style={{ width: "30vw" }}>
         <div className="flex justify-content-center flex-column pt-6 px-3">
-          <i
-            className="pi pi-check-circle"
-            style={{ fontSize: "5rem", color: "var(--green-500)" }}
+          <i className="pi pi-check-circle" style={{ fontSize: "5rem", color: "var(--green-500)" }}
           ></i>
           <h5>Información actualizada!</h5>
         </div>

@@ -109,10 +109,7 @@ export default function RegisterComponent() {
               </div>
               <div className="field">
                 <span className="p-float-label">
-                  <Controller
-                    name="password"
-                    control={control}
-                    rules={{ required: 'Password is required.' }}
+                  <Controller name="password" control={control} rules={{ required: 'Password is required.' }}
                     render={({ field, fieldState }) => (
                       <Password
                         id={field.name}
@@ -130,11 +127,7 @@ export default function RegisterComponent() {
               </div>
 
               <div className="field-checkbox">
-                <Controller
-                  name="accept"
-                  control={control}
-                  rules={{ required: true }}
-                  render={({ field, fieldState }) => (
+                <Controller name="accept" control={control} rules={{ required: true }} render={({ field, fieldState }) => (
                     <Checkbox
                       inputId={field.name}
                       onChange={(e) => field.onChange(e.checked)}
