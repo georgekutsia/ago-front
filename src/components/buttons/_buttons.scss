@@ -42,3 +42,16 @@
   background: var(--color);
   color: #fff;
 }
+
+  .btn-update{
+    background-color: $ago-lightBlue;
+    padding: 10px 15px;
+    margin-top: 10px;
+    transition: 0.4s ease-in-out;
+      font-weight: 500;
+
+    &:hover{
+      border-radius: 10px;
+      border: 2px solid black;
+    }
+  }

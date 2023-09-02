@@ -1,14 +1,20 @@
 import axios from 'axios';
 
+import { setError } from "./errorHandler";
+
 const http = axios.create({baseURL:"http://localhost:5003", withCredentials:true})
 
 
-export function userRegister(data) {
-  console.log("registrando", data);
-  return http.post("/user/register", data);
+
+export async function userRegister(data) {
+  try {
+    console.log("registrando", data);
+    await http.post("/user/register", data);
+  } catch (error) {
+    console.log("errorsssss ", error.response.data.message)
+    setError(error.response.data.message);
+  }
 }
-
-
 
 export async function userLogin(data) {
     console.log("logando", data);
@@ -19,15 +25,18 @@ export async function userLogin(data) {
 
   export function logout() {
     localStorage.removeItem('user');
-   return localStorage.removeItem('token');
+    return localStorage.removeItem('token');
   }
 
-
-export function putUser(id, data) {
+export async function putUser(id, data) {
   console.log("actualizada la información de usuario", data);
-  return http.put(`/user/${id}`, data);
+  await http.put(`/user/${id}`, data);
 }
-export function getOneUser(id) {
+
+export async function getOneUser(id) {
   console.log("Recibida información de usuario");
-  return http.get(`/user/${id}`);
+  const response = await http.get(`/user/${id}`);
+  return response.data;
 }
+
+

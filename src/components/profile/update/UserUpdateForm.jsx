@@ -8,34 +8,42 @@ import { Password } from "primereact/password";
 import { Dialog } from "primereact/dialog";
 import { Divider } from "primereact/divider";
 import { classNames } from "primereact/utils";
+import { InputMask } from "primereact/inputmask";
+import { Calendar } from "primereact/calendar";
+import { Dropdown } from "primereact/dropdown";
+import { MultiSelect } from "primereact/multiselect";
+        import { InputNumber } from "primereact/inputnumber";
 
-export default function UserUpdateForm() {
+
+export default function UserUpdateForm({ setUpdate }) {
   const navigation = useNavigate();
   const [showMessage, setShowMessage] = useState(false);
   const [userData, setUserData] = useState({});
   const [formData, setFormData] = useState({});
-
+const [value, setValue] = useState("");
+        
   useEffect(() => {
-    const userData = JSON.parse(localStorage.getItem("user"));
-    getOneUser(userData._id).then((information) => {
-      setUserData(information.data);
-    });
+    const userDataFromLocalStorage = JSON.parse(localStorage.getItem("user"));
+    getOneUser(userDataFromLocalStorage._id)
+      .then((userInfo) => {
+        setUserData(userInfo);
+      })
+      .catch((error) => {
+        console.error("Error al obtener información del usuario:", error);
+      });
   }, []);
-  
-  const { control, handleSubmit, formState: { errors }, } = useForm();
+
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
   const getFormErrorMessage = (name) => {
     return (
       errors[name] && <small className="p-error">{errors[name].message}</small>
     );
   };
-
-  const dialogFooter = (
-    <div className="flex justify-content-center">
-      <Button label="OK" className="p-button-text" autoFocus onClick={() => setShowMessage(false)}
-      />
-    </div>
-  );
   const passwordHeader = <h6>Elige una contraseña segura</h6>;
   const passwordFooter = (
     <React.Fragment>
@@ -53,10 +61,10 @@ export default function UserUpdateForm() {
   const onSubmit = async (data) => {
     try {
       setFormData(data);
-      console.log("data del formulario",data)
       setShowMessage(true);
       const response = await putUser(userData._id, data);
-      navigation("/login");
+        setUpdate(false);
+
       console.log("Respuesta de registro:", response);
     } catch (error) {
       console.error("Error al registrar:", error);
@@ -73,22 +81,16 @@ export default function UserUpdateForm() {
                 <span className="p-float-label">
                   <Controller name="name" control={control} rules={{
                       required: "Nombre es requerido.",
-                      maxLength: {
-                        value: 30,
-                        message:
-                          "Intenta crear un nombre más corto (máximo 30 caracteres).",
-                      },
-                      minLength: {
-                        value: 3,
-                        message: "El nombre debe tener más de 3 caracteres",
-                      },
+                      maxLength: { value: 30, message:   "Intenta crear un nombre más corto (máximo 30 caracteres).",},
+                      minLength: { value: 3, message: "El nombre debe tener más de 3 caracteres",},
                     }}
                     render={({ field, fieldState }) => (
-                      <InputText defaultValue={userData.name} id={field.name} {...field} autoFocus className=
-                          {classNames({ "p-invalid": fieldState.invalid,})}/>)}/>
+                      <InputText id={field.name} value={userData?.name} {...field} autoFocus className={classNames({"p-invalid": fieldState.invalid,})}
+                      />
+                    )}
+                  />
                   <label htmlFor="name" className={classNames({ "p-error": errors.name })}>
-                    {" "}
-                    Nombre*
+                    {userData?.name}
                   </label>
                 </span>
                 {getFormErrorMessage("name")}
@@ -100,19 +102,19 @@ export default function UserUpdateForm() {
                       required: "Email is required.",
                       pattern: {
                         value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
-                        message: "El email es inválido. Prueba algo como: example@email.com",
+                        message:
+                          "El email es inválido. Prueba algo como: example@email.com",
                       },
                     }}
                     render={({ field, fieldState }) => (
-                      <InputText
-                        id={field.name}
-                        {...field}
-                        className={classNames({ "p-invalid": fieldState.invalid, })}/>)}    />
+                      <InputText id={field.name} {...field} className={classNames({   "p-invalid": fieldState.invalid, })}/>
+                    )}
+                  />
                   <label
                     htmlFor="email"
                     className={classNames({ "p-error": !!errors.email })}
                   >
-                    Email*
+                    Modificar el Email*
                   </label>
                 </span>
                 {getFormErrorMessage("email")}
@@ -120,39 +122,111 @@ export default function UserUpdateForm() {
               <div className="field">
                 <span className="p-float-label">
                   <Controller name="password" control={control} rules={{ required: "Password is required." }} render={({ field, fieldState }) => (
-                      <Password
-                        id={field.name}
-                        {...field}
-                        toggleMask
-                        className={classNames({
+                      <Password id={field.name} {...field} toggleMask className={classNames({
                           "p-invalid": fieldState.invalid,
-                        })}
-                        header={passwordHeader}
-                        footer={passwordFooter}
+                        })} header={passwordHeader} footer={passwordFooter}
                       />
                     )}
                   />
-                  <label
-                    htmlFor="password"
-                    className={classNames({ "p-error": errors.password })}
-                  >
-                    Contraseña*
+                  <label htmlFor="password" className={classNames({ "p-error": errors.password })}>
+                    Modificar la Contraseña*
                   </label>
                 </span>
                 {getFormErrorMessage("password")}
               </div>
+
+{/* Age */}
+{/* Age */}
+              <div className="field">
+                <span className="p-float-label">
+                  <Controller name="age" control={control} rules={{
+                      required: "Nombre es requerido.",
+                      maxLength: { value: 30, message:   "Intenta crear un nombre más corto (máximo 30 caracteres).",},
+                      minLength: { value: 3, message: "El nombre debe tener más de 3 caracteres",},
+                    }}
+                    render={({ field, fieldState }) => (
+                      <InputText id={field.name} value={userData?.age} {...field} autoFocus className={classNames({"p-invalid": fieldState.invalid,})}
+                      />
+                    )}
+                  />
+                  <label htmlFor="age" className={classNames({ "p-error": errors.name })}>
+                    Edad {userData?.age}
+                  </label>
+                </span>
+                {getFormErrorMessage("age")}
+              </div>
+{/* Age */}
+{/* Age */}
+
+
+
+{/* Phone Number */}
+{/* Phone Number */}
+              <div className="field">
+                <span className="p-float-label">
+                  <Controller name="phoneNumber" control={control} rules={{   
+                      max: { value: 30, message:   "Máximo números de teléfono de 30 digitos",},
+                      min: { value: 3, message: "Faltan datos en el número",},
+                      }}
+                    render={({ field, fieldState }) => (
+                      <InputMask id={field.name} {...field}  mask="+99-999-999-999" placeholder="+99-999999" autoFocus className={classNames({ "p-invalid": fieldState.invalid,})}/>)}/>
+                  <label htmlFor="phoneNumber" className={classNames({ "p-error": errors.name })}>
+                   Teléfono {userData?.phoneNumber}
+                  </label>
+                </span>
+                {getFormErrorMessage("phoneNumber")}
+              </div>
+{/* Phone Number */}
+{/* Phone Number */}
+
+
+{/* specialization */}
+{/* specialization */}
+              {/* <div className="field">
+                <span className="p-float-label">
+                  <Controller name="specialization" control={control} rules={{
+                      required: "Nombre es requerido.",
+                      maxLength: { value: 30, message:   "Especialización corta",},
+                      minLength: { value: 3, message: "Muy larga",},
+                    }}
+                    render={({ field, fieldState }) => (
+                      <InputText id={field.name} value={userData?.age} {...field} autoFocus className={classNames({"p-invalid": fieldState.invalid,})}
+                      />
+                    )}
+                  />
+                  <label htmlFor="specialization" className={classNames({ "p-error": errors.name })}>
+                Especialización {userData?.specialization}
+                  </label>
+                </span>
+                {getFormErrorMessage("specialization")}
+              </div> */}
+{/* specialization */}
+{/* specialization */}
+{/* yearsOfExperience */}
+{/* yearsOfExperience */}
+              <div className="field">
+                <span className="p-float-label">
+                  <Controller name="yearsOfExperience" control={control} 
+                    render={({ field, fieldState }) => (
+                      <Calendar id={field.name} {...field} autoFocus className={classNames({   "p-invalid": fieldState.invalid, })}/>)}
+                  />
+                  <label htmlFor="yearsOfExperience" className={classNames({ "p-error": errors.name })}
+                  >
+                   Experiencia desde  {userData?.yearsOfExperience}
+                  </label>
+                </span>
+                {getFormErrorMessage("yearsOfExperience")}
+              </div>
+{/* yearsOfExperience */}
+{/* yearsOfExperience */}
+
+
               <Button type="submit" label="Actualizar" className="mt-2" />
             </div>
           </div>
         </div>
       </form>
-      <Dialog visible={showMessage} onHide={() => setShowMessage(false)} position="top" footer={dialogFooter} showHeader={false} breakpoints={{ "960px": "80vw" }} style={{ width: "30vw" }}>
-        <div className="flex justify-content-center flex-column pt-6 px-3">
-          <i className="pi pi-check-circle" style={{ fontSize: "5rem", color: "var(--green-500)" }}
-          ></i>
-          <h5>Información actualizada!</h5>
-        </div>
-      </Dialog>
+
     </section>
   );
 }

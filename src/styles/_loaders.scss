@@ -1,0 +1,63 @@
+
+.mainLoader {
+    width: 200px;
+    position: absolute;
+    margin: 30vh 43vw;
+    aspect-ratio: 1;
+    display: grid;
+    color: #854f1d;
+    background: radial-gradient(farthest-side, currentColor calc(40% - 6px), #0000 calc(40% - 5px) 0);
+    -webkit-mask: radial-gradient(farthest-side, #0000 calc(40% - 13px), #000 calc(40% - 12px));
+    border-radius: 50%;
+    animation: l19 2s infinite linear;
+}
+
+.mainLoader::before,
+.mainLoader::after {
+    content: "";
+    grid-area: 1/1;
+    background:
+        linear-gradient(currentColor 0 0) center,
+        linear-gradient(currentColor 0 0) center;
+    background-size: 100% 10px, 10px 100%;
+    background-repeat: no-repeat;
+}
+
+.mainLoader::after {
+    transform: rotate(45deg);
+}
+
+@keyframes l19 {
+    100% { transform: rotate(1turn) }
+}
+.mainLoader2 {
+    width: 200px;
+    position: absolute;
+    margin: 30vh 43vw;
+    aspect-ratio: 1;
+    display: grid;
+    color: #854f1d;
+    background: radial-gradient(farthest-side, currentColor calc(60% - 6px), #0000 calc(60% - 5px) 0);
+    -webkit-mask: radial-gradient(farthest-side, #0000 calc(60% - 13px), #000 calc(60% - 12px));
+    border-radius: 50%;
+    animation: l19 3s infinite linear;
+}
+
+.mainLoader2::before,
+.mainLoader2::after {
+    content: "";
+    grid-area: 1/1;
+    background:
+        linear-gradient(currentColor 0 0) center,
+        linear-gradient(currentColor 0 0) center;
+    background-size: 100% 10px, 10px 100%;
+    background-repeat: no-repeat;
+}
+
+.mainLoader2::after {
+    transform: rotate(45deg);
+}
+
+@keyframes l19 {
+    100% { transform: rotate(1turn) }
+}
