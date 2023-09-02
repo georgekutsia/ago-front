@@ -3,7 +3,7 @@ import { ButtonComponentLogRegToggle, LoginComponent, RegisterComponent } from '
 import { LoggedContext } from '../../shared/contexts/JwtContext';
 
 function HomeScreen() {
-  const [logReg, setLogReg] = useState(false)
+  const [logReg, setLogReg] = useState(true)
   const { userData, setUserData } = useContext(LoggedContext);
 
   const handleToggle = ()=>{
@@ -11,13 +11,13 @@ function HomeScreen() {
   }
   return (
     <div>
-      {!userData &&
-      <>
-        {logReg && <RegisterComponent />}
-        {!logReg && <LoginComponent />}
-        <ButtonComponentLogRegToggle toggle={handleToggle} logReg={logReg} />
-      </>
-      }
+      {!userData && (
+        <>
+          {logReg && <RegisterComponent setLogReg={setLogReg} />}
+          {!logReg && <LoginComponent />}
+          <ButtonComponentLogRegToggle toggle={handleToggle} logReg={logReg} />
+        </>
+      )}
     </div>
   );
 }

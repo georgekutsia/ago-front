@@ -2,13 +2,17 @@
     text-align: center;
     display: flex;
     flex-direction: column;
-    height: 100%;
     overflow: hidden;
+    width: 300px;
     justify-content: center;
+    margin: 20px;
+    position: absolute;
+    right: 0;
+    top: 50px;
 }
 .formDemoUpdateUser .card {
-    min-width: 450px;
-    background-color: $ago-lightLog;
+    min-width: 100px;
+    background-color: $ago-greenLog;
 }
 .formDemoUpdateUser .card form {
     margin-top: 2rem;
