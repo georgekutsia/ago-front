@@ -1,14 +1,20 @@
 import axios from 'axios';
 
+import { setError } from "./errorHandler";
+
 const http = axios.create({baseURL:"http://localhost:5003", withCredentials:true})
 
 
-export function userRegister(data) {
-  console.log("registrando", data);
-  return http.post("/user/register", data);
+
+export async function userRegister(data) {
+  try {
+    console.log("registrando", data);
+    await http.post("/user/register", data);
+  } catch (error) {
+    console.log("errorsssss ", error.response.data.message)
+    setError(error.response.data.message);
+  }
 }
-
-
 
 export async function userLogin(data) {
     console.log("logando", data);
@@ -19,84 +25,18 @@ export async function userLogin(data) {
 
   export function logout() {
     localStorage.removeItem('user');
-   return localStorage.removeItem('token');
+    return localStorage.removeItem('token');
   }
 
-
-export function putUser(id, data) {
+export async function putUser(id, data) {
   console.log("actualizada la información de usuario", data);
-  return http.put(`/user/${id}`, data);
+  await http.put(`/user/${id}`, data);
 }
-export function getOneUser(id) {
+
+export async function getOneUser(id) {
   console.log("Recibida información de usuario");
-  return http.get(`/user/${id}`);
+  const response = await http.get(`/user/${id}`);
+  return response.data;
 }
 
 
-
-
-
-
-
-
-
-
-  // getRestaurants(){
-  //   return this.http.get(this.url)
-  // }
-
-  // getRestaurantById(id: string){
-  //   return this.http.get(`${this.url}/${id}`)
-  // }
-
-  // postRestaurant(restaurant: RestaurantI){
-  //   return this.http.post(this.url, restaurant)
-  // }
-
-  // putRestaurant(restaurant: RestaurantI, id: string){
-  //   return this.http.put(`${this.url}/${id}`, restaurant)
-  // }
-
-  // deleteRestaurants(id: string){
-  //   return this.http.delete(`${this.url}/${id}`)
-  // }
-
-  // setRestaurant(restaurant: RestaurantI, id: string){
-  //   this.restaurant = {...restaurant};
-  //   this.id = id
-  // }
-
-  // getRestaurant(){
-  //   return this.restaurant;
-  // }
-
-  // getId(){
-  //   return this.id;
-  // }
-
-  // getUserById(id: string) {
-  //   return this.http.get(`${this.db_url}/usuarios/${id}`)
-  // }
-  // updateUsuarios(id: string, data: any) {
-  //   return this.http.put(`${this.db_url}/usuarios/${id}`, data);
-  // }
-
-
-
-
-// export const APIHeaders = {
-//     'Accept': 'application/json',
-//     'Content-Type': 'application/json',
-//     'Access-Control-Allow-Origin': '*',
-//     'Authorization': {
-//         toString () {
-//             return `Bearer ${localStorage.getItem('token')}`
-//         }
-//     }
-// };
-
-// export const API = axios.create({
-//     baseURL: process.env.REACT_APP_BACK_URL,
-//     timeout: 6000,
-//     headers: APIHeaders
-// });

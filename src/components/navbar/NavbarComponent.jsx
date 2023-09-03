@@ -13,8 +13,9 @@ export default function NavbarComponent() {
        icon: "pi pi-fw pi-user",
        items: [
          {
-           label: "Nueva",
+           label: "Perfil",
            icon: "pi pi-fw pi-user-plus",
+           url: "/profile",
          },
          {
            label: "Editar",
@@ -58,12 +59,13 @@ export default function NavbarComponent() {
        ],
      },
      {
-       label: "Edit",
-       icon: "pi pi-fw pi-pencil",
+       label: "Companies",
+       icon: "pi pi-fw pi-list",
        items: [
          {
-           label: "Left",
-           icon: "pi pi-fw pi-align-left",
+           label: "Ver lista completa",
+           icon: "pi pi-fw pi-microsoft",
+           url: "/companies",
          },
          {
            label: "Right",
@@ -80,12 +82,13 @@ export default function NavbarComponent() {
        ],
      },
      {
-       label: "Events",
+       label: "Navegar",
        icon: "pi pi-fw pi-calendar",
        items: [
          {
-           label: "Edit",
+           label: "Página principal",
            icon: "pi pi-fw pi-pencil",
+           url:"/home",
            items: [
              {
                label: "Save",
@@ -108,13 +111,12 @@ export default function NavbarComponent() {
            ],
          },
        ],
-      },
-      
-    ];
+     },
+   ];
     const handleLogout = () => {
       logout();
       setUserData(false);
-      navigation("/company");
+      navigation("/home");
     };
     const navigateToLogin = () => {
 

@@ -1,6 +1,7 @@
+@charset "UTF-8";
 body {
   font-family: var(--font-family);
-  background-color: rgb(232, 238, 209);
+  background-color: rgb(255, 255, 255);
 }
 
 * {
@@ -16,9 +17,72 @@ a {
   text-decoration: none;
 }
 
+.mainLoader {
+  width: 200px;
+  position: absolute;
+  margin: 30vh 43vw;
+  aspect-ratio: 1;
+  display: grid;
+  color: #854f1d;
+  background: radial-gradient(farthest-side, currentColor calc(40% - 6px), rgba(0, 0, 0, 0) calc(40% - 5px) 0);
+  -webkit-mask: radial-gradient(farthest-side, rgba(0, 0, 0, 0) calc(40% - 13px), #000 calc(40% - 12px));
+  border-radius: 50%;
+  animation: l19 2s infinite linear;
+}
+
+.mainLoader::before,
+.mainLoader::after {
+  content: "";
+  grid-area: 1/1;
+  background: linear-gradient(currentColor 0 0) center, linear-gradient(currentColor 0 0) center;
+  background-size: 100% 10px, 10px 100%;
+  background-repeat: no-repeat;
+}
+
+.mainLoader::after {
+  transform: rotate(45deg);
+}
+
+@keyframes l19 {
+  100% {
+    transform: rotate(1turn);
+  }
+}
+.mainLoader2 {
+  width: 200px;
+  position: absolute;
+  margin: 30vh 43vw;
+  aspect-ratio: 1;
+  display: grid;
+  color: #854f1d;
+  background: radial-gradient(farthest-side, currentColor calc(60% - 6px), rgba(0, 0, 0, 0) calc(60% - 5px) 0);
+  -webkit-mask: radial-gradient(farthest-side, rgba(0, 0, 0, 0) calc(60% - 13px), #000 calc(60% - 12px));
+  border-radius: 50%;
+  animation: l19 3s infinite linear;
+}
+
+.mainLoader2::before,
+.mainLoader2::after {
+  content: "";
+  grid-area: 1/1;
+  background: linear-gradient(currentColor 0 0) center, linear-gradient(currentColor 0 0) center;
+  background-size: 100% 10px, 10px 100%;
+  background-repeat: no-repeat;
+}
+
+.mainLoader2::after {
+  transform: rotate(45deg);
+}
+
+@keyframes l19 {
+  100% {
+    transform: rotate(1turn);
+  }
+}
 .navbar {
   position: fixed;
   width: 100%;
+  z-index: 30;
 }
 
 .disconect-btn {
@@ -47,7 +111,7 @@ a {
 
 .register {
   text-align: center;
-  padding: 30vh 30vw;
+  padding: 30vh 20vw;
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -173,6 +237,166 @@ a {
   color: #fff;
 }
 
+.btn-update {
+  background-color: rgb(98, 148, 172);
+  padding: 10px 15px;
+  margin-top: 10px;
+  transition: 0.4s ease-in-out;
+  font-weight: 500;
+}
+.btn-update:hover {
+  border-radius: 10px;
+  border: 2px solid black;
+}
+
+.updateUser {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  width: 430px;
+  justify-content: center;
+  margin: 20px;
+  position: absolute;
+  right: 0;
+  top: 50px;
+}
+.updateUser .double-input {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.formDemoUpdateUser .card {
+  min-width: 100px;
+  background-color: rgb(0, 142, 26);
+}
+
+.formDemoUpdateUser .card form {
+  margin-top: 2rem;
+}
+
+.formDemoUpdateUser .card .field {
+  margin-bottom: 1.5rem;
+}
+
+@media screen and (max-width: 960px) {
+  .formDemoUpdateUser .card {
+    width: 80%;
+    padding: 0px;
+  }
+}
+@media screen and (max-width: 640px) {
+  .formDemo .card {
+    width: 100%;
+    min-width: 300px;
+    padding: 0vw;
+  }
+}
 .profile {
   padding-top: 60px;
+  display: flex;
+  justify-content: space-between;
+  padding: 5vw;
+}
+
+.companies-box {
+  padding: 100px;
+}
+.companies-box-title {
+  text-align: center;
+  border-bottom: 2px solid rgba(38, 102, 103, 0.63);
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+}
+.companies-box-title-p1 {
+  animation: slideInOut 20s linear infinite;
+  font-size: 20px;
+  transform-origin: 100% 50%;
+  display: inline-block;
+}
+.companies-box-title-p2 {
+  animation: slideInOut2 20s linear infinite;
+  font-size: 30px;
+  position: absolute;
+  top: 50px;
+  left: 30%;
+}
+.companies-box h2 {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.companies-box-ul {
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  padding: 0px;
+}
+.companies-box-ul-section {
+  display: flex;
+  overflow: hidden;
+}
+.companies-box .company-card {
+  padding: 10px;
+  margin: 10px;
+  min-height: 300px;
+  background-color: rgb(98, 148, 172);
+  min-width: 350px;
+}
+.companies-box .company-card img {
+  height: 140px;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.btn-ceo {
+  padding: 5px 10px;
+  border-radius: 4px;
+  background-color: rgb(98, 148, 172);
+}
+
+.adsGalleyComponent {
+  display: flex;
+}
+
+.adsGalleyComponent {
+  display: flex;
+  overflow-x: auto;
+  border-bottom: 0.5px black solid;
+  padding: 20px;
+}
+
+.advertisement {
+  padding: 10px;
+  margin-right: 10px;
+  padding-top: 50px;
+  min-width: 300px;
+  box-shadow: 2px 2px 3px rgb(26, 11, 36);
+}
+
+@keyframes slideInOut {
+  0% {
+    transform: translateX(110%); /* Inicia fuera de la vista a la derecha */
+  }
+  100% {
+    transform: translateX(-120%); /* Llega a la izquierda al final de la animación */
+  }
+}
+@keyframes slideInOut2 {
+  0% {
+    opacity: 1;
+  }
+  17% {
+    opacity: 1;
+  }
+  19% {
+    opacity: 0;
+  }
+  79% {
+    opacity: 0;
+  }
+  81% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
 }/*# sourceMappingURL=main.css.map */

@@ -1,6 +1,7 @@
 @import "./styles/reset";
 @import "./styles/var";
 @import "./styles/mixin";
+@import "./styles/loaders";
 
 
 @import "./components/navbar/navbar";
@@ -15,3 +16,4 @@
 @import "./screens/comment/comment";
 @import "./screens/home/home";
 @import "./screens/profile/profile";
+@import "./screens/company/company";
