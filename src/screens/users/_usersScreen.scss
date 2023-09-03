@@ -5,6 +5,7 @@
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.255);
     margin-top: 10px;
     padding: 10px;
+    justify-content: space-between;
     &-divImg{
       position: relative;
       img{
@@ -19,6 +20,7 @@
     }
     &-divInfo{
       padding: 15px 10px;
+      width: 60vw;
     }
   }
 }
