@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { Route, Routes } from "react-router-dom";
-import { CompanyScreen, HomeScreen, ProfileScreen } from './screens/index.js';
+import { CompanyScreen, HomeScreen, ProfileScreen, UsersScreen } from './screens/index.js';
 import RequireAuth  from "./shared/components/RequireAuth/RequireAuth.jsx";
 import { LoggedContext } from './shared/contexts/JwtContext.js';
 
@@ -12,6 +12,7 @@ function Routers() {
           <Route path="/home" element={<HomeScreen/>} /> {/*Home puede tener login*/}
           <Route path="/login" element={<HomeScreen/>} />
           <Route path="/register" element={<HomeScreen/>} />
+          <Route path="/users" element={<UsersScreen/>} />
           <Route path="/profile" element={<RequireAuth><ProfileScreen/></RequireAuth> } /> Ver perfil de usuario
           <Route path={`/profile/${userData?._id}`}element={<RequireAuth><ProfileScreen/></RequireAuth> } /> {/*Editar usuario*/}
           <Route path="/comment" element={<HomeScreen/>} /> {/*Ver comentarios y valoraciones sobre el trabajador*/}
