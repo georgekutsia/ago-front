@@ -40,3 +40,10 @@ export async function getOneUser(id) {
 }
 
 
+export async function getUsers() {
+  console.log("Recibida información de todos los usuarios");
+  const response = await http.get(`/user`);
+  return response.data;
+}
+
+

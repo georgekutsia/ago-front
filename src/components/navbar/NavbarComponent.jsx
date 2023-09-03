@@ -59,7 +59,7 @@ export default function NavbarComponent() {
        ],
      },
      {
-       label: "Companies",
+       label: "Contacts",
        icon: "pi pi-fw pi-list",
        items: [
          {
@@ -68,8 +68,9 @@ export default function NavbarComponent() {
            url: "/companies",
          },
          {
-           label: "Right",
-           icon: "pi pi-fw pi-align-right",
+           label: "Our users",
+           icon: "pi pi-fw pi-users",
+           url:"/users"
          },
          {
            label: "Center",
