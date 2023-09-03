@@ -292,6 +292,11 @@ a {
     padding: 0vw;
   }
 }
+.leaflet-container {
+  width: 50vw;
+  height: 50vh;
+}
+
 .profile {
   padding-top: 60px;
   display: flex;
@@ -408,6 +413,7 @@ a {
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.255);
   margin-top: 10px;
   padding: 10px;
+  justify-content: space-between;
 }
 .usersScreen-section-divImg {
   position: relative;
@@ -424,4 +430,5 @@ a {
 }
 .usersScreen-section-divInfo {
   padding: 15px 10px;
+  width: 60vw;
 }/*# sourceMappingURL=main.css.map */

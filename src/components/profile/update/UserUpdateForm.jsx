@@ -47,15 +47,25 @@ const handleTypeChange = (e) => {
   const { control, handleSubmit, formState: { errors }, } = useForm();
 
   const specializations = [
-    { label: "Albañil", value: "Albañil" },
-    { label: "Carpintero", value: "Carpintero" },
-    { label: "Electricista", value: "Electricista" },
-    { label: "Fontanero ", value: "Fontanero" },
-    { label: "Pintor", value: "Pintor" },
-    { label: "Jardinero", value: "Jardinero" },
-    { label: "Yesero", value: "Yesero" },
-    { label: "Techador", value: "Techador" },
-    { label: "Hormigonero", value: "Hormigonero" },
+    { label: "Desarrollador web freelance", value: "64f4ff132d01b72514a6047b" },
+    { label: "Asistete virtual", value: "64f4ff132d01b72514a6047c" },
+    { label: "Profesor particular", value: "64f4ff132d01b72514a6047d" },
+    { label: "Diseñador Gráfico", value: "64f4ff132d01b72514a6047e" },
+    { label: "Cuidador de Mascotas", value: "64f4ff132d01b72514a6047f" },
+    { label: "Redactor de Contenidos", value: "64f4ff132d01b72514a60480" },
+    { label: "Entrenador Personal", value: "64f4ff132d01b72514a60481" },
+    { label: "Traductor Técnico", value: "64f4ff132d01b72514a60482" },
+    { label: "Consultor", value: "64f4ff132d01b72514a60483" },
+    { label: "Chef", value: "64f4ff132d01b72514a60484" },
+    { label: "Albañil", value: "64f4ff132d01b72514a60485" },
+    { label: "Carpintero", value: "64f4ff132d01b72514a60486" },
+    { label: "Electricista", value: "64f4ff132d01b72514a60487" },
+    { label: "Fontanero ", value: "64f4ff132d01b72514a60488" },
+    { label: "Pintor", value: "64f4ff132d01b72514a60489" },
+    { label: "Jardinero", value: "64f4ff132d01b72514a6048a" },
+    { label: "Yesero", value: "64f4ff132d01b72514a6048b" },
+    { label: "Techador", value: "64f4ff132d01b72514a6048c" },
+    { label: "Hormigonero", value: "64f4ff132d01b72514a6048d" },
   ];
   const getFormErrorMessage = (name) => {
     return (
