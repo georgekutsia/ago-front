@@ -12,7 +12,8 @@ import { InputMask } from "primereact/inputmask";
 import { Calendar } from "primereact/calendar";
 import { Dropdown } from "primereact/dropdown";
 import { MultiSelect } from "primereact/multiselect";
-        import { InputNumber } from "primereact/inputnumber";
+import { InputNumber } from "primereact/inputnumber";
+
 
 
 export default function UserUpdateForm({ setUpdate }) {
@@ -21,6 +22,16 @@ export default function UserUpdateForm({ setUpdate }) {
   const [userData, setUserData] = useState({});
   const [formData, setFormData] = useState({});
 const [value, setValue] = useState("");
+const [typeSpecialization, setTypetypeSpecialization] = useState(null);
+
+const handleTypeChange = (e) => {
+  const selectedValues = e.value;
+  if (selectedValues.length <= 3) {
+    setTypetypeSpecialization(selectedValues);
+  } else {
+    setTypetypeSpecialization(selectedValues.slice(0, 3));
+  }
+};
         
   useEffect(() => {
     const userDataFromLocalStorage = JSON.parse(localStorage.getItem("user"));
@@ -33,12 +44,19 @@ const [value, setValue] = useState("");
       });
   }, []);
 
-  const {
-    control,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
+  const { control, handleSubmit, formState: { errors }, } = useForm();
 
+  const specializations = [
+    { label: "Albañil", value: "Albañil" },
+    { label: "Carpintero", value: "Carpintero" },
+    { label: "Electricista", value: "Electricista" },
+    { label: "Fontanero ", value: "Fontanero" },
+    { label: "Pintor", value: "Pintor" },
+    { label: "Jardinero", value: "Jardinero" },
+    { label: "Yesero", value: "Yesero" },
+    { label: "Techador", value: "Techador" },
+    { label: "Hormigonero", value: "Hormigonero" },
+  ];
   const getFormErrorMessage = (name) => {
     return (
       errors[name] && <small className="p-error">{errors[name].message}</small>
@@ -59,6 +77,8 @@ const [value, setValue] = useState("");
   );
 
   const onSubmit = async (data) => {
+    data.specialization = typeSpecialization;
+
     try {
       setFormData(data);
       setShowMessage(true);
@@ -77,24 +97,24 @@ const [value, setValue] = useState("");
           <div className="card">
             <h3 className="text-center">Actualiza tus datos</h3>
             <div className="p-fluid">
+            {/* name */}
+            {/* name */}
               <div className="field">
                 <span className="p-float-label">
-                  <Controller name="name" control={control} rules={{
-                      required: "Nombre es requerido.",
-                      maxLength: { value: 30, message:   "Intenta crear un nombre más corto (máximo 30 caracteres).",},
-                      minLength: { value: 3, message: "El nombre debe tener más de 3 caracteres",},
-                    }}
+                  <Controller name="name" control={control} rules={{ required: "Nombre es requerido.", maxLength: { value: 30, message:   "Intenta crear un nombre más corto (máximo 30 caracteres).",}, 
+                  minLength: { value: 3, message: "El nombre debe tener más de 3 caracteres",},}}
                     render={({ field, fieldState }) => (
-                      <InputText id={field.name} value={userData?.name} {...field} autoFocus className={classNames({"p-invalid": fieldState.invalid,})}
-                      />
+                      <InputText id={field.name} value={userData?.name} {...field} autoFocus className={classNames({"p-invalid": fieldState.invalid,})} />
                     )}
                   />
                   <label htmlFor="name" className={classNames({ "p-error": errors.name })}>
-                    {userData?.name}
+                   Aes {userData?.name}
                   </label>
                 </span>
                 {getFormErrorMessage("name")}
               </div>
+              {/* /name */}
+              {/* /name */}
               <div className="field">
                 <span className="p-float-label p-input-icon-right">
                   <i className="pi pi-envelope" />
@@ -135,17 +155,19 @@ const [value, setValue] = useState("");
                 {getFormErrorMessage("password")}
               </div>
 
+<div className="double-input">
+
 {/* Age */}
 {/* Age */}
               <div className="field">
                 <span className="p-float-label">
                   <Controller name="age" control={control} rules={{
                       required: "Nombre es requerido.",
-                      maxLength: { value: 30, message:   "Intenta crear un nombre más corto (máximo 30 caracteres).",},
-                      minLength: { value: 3, message: "El nombre debe tener más de 3 caracteres",},
+                      max: { value: 130, message:   "Admiramos que siga vivo a esta edad, pero nos preocupa su salud. Descanse",},
+                      nim: { value: 12, message: "Debe tener más de 12 años para usar nuestros servicios",},
                     }}
                     render={({ field, fieldState }) => (
-                      <InputText id={field.name} value={userData?.age} {...field} autoFocus className={classNames({"p-invalid": fieldState.invalid,})}
+                      <InputText id={field.name} value={userData?.age} {...field}  className={classNames({"p-invalid": fieldState.invalid,})}
                       />
                     )}
                   />
@@ -169,7 +191,7 @@ const [value, setValue] = useState("");
                       min: { value: 3, message: "Faltan datos en el número",},
                       }}
                     render={({ field, fieldState }) => (
-                      <InputMask id={field.name} {...field}  mask="+99-999-999-999" placeholder="+99-999999" autoFocus className={classNames({ "p-invalid": fieldState.invalid,})}/>)}/>
+                      <InputMask id={field.name} {...field}  mask="+99-999-999-999" placeholder="+99-999999"  className={classNames({ "p-invalid": fieldState.invalid,})}/>)}/>
                   <label htmlFor="phoneNumber" className={classNames({ "p-error": errors.name })}>
                    Teléfono {userData?.phoneNumber}
                   </label>
@@ -178,37 +200,27 @@ const [value, setValue] = useState("");
               </div>
 {/* Phone Number */}
 {/* Phone Number */}
+</div>
 
 
-{/* specialization */}
-{/* specialization */}
-              {/* <div className="field">
-                <span className="p-float-label">
-                  <Controller name="specialization" control={control} rules={{
-                      required: "Nombre es requerido.",
-                      maxLength: { value: 30, message:   "Especialización corta",},
-                      minLength: { value: 3, message: "Muy larga",},
-                    }}
-                    render={({ field, fieldState }) => (
-                      <InputText id={field.name} value={userData?.age} {...field} autoFocus className={classNames({"p-invalid": fieldState.invalid,})}
-                      />
-                    )}
-                  />
-                  <label htmlFor="specialization" className={classNames({ "p-error": errors.name })}>
-                Especialización {userData?.specialization}
-                  </label>
-                </span>
-                {getFormErrorMessage("specialization")}
-              </div> */}
-{/* specialization */}
-{/* specialization */}
+{/* typeSpecialization */}
+{/* typeSpecialization */}
+                <div className="field">
+                  <span className="p-float-label">
+                    <MultiSelect id="typeCompany" name="typeSpecialization" value={typeSpecialization} options={specializations} onChange={handleTypeChange} display="chip"
+                    placeholder="Selecciona tipo de empresas que vas a crear. Máximo 3." optionLabel="label" optionValue="value" maxSelectedLabels={3} className="w-full md:w-20rem"/>
+                    <label htmlFor="typeCompany">Destaca 3 especialidades</label>
+                  </span>
+                </div>
+{/* typeSpecialization */}
+{/* typeSpecialization */}
+
 {/* yearsOfExperience */}
 {/* yearsOfExperience */}
               <div className="field">
                 <span className="p-float-label">
-                  <Controller name="yearsOfExperience" control={control} 
-                    render={({ field, fieldState }) => (
-                      <Calendar id={field.name} {...field} autoFocus className={classNames({   "p-invalid": fieldState.invalid, })}/>)}
+                  <Controller name="yearsOfExperience" control={control}  render={({ field, fieldState }) => (
+                      <Calendar id={field.name} {...field}  className={classNames({   "p-invalid": fieldState.invalid, })}/>)}
                   />
                   <label htmlFor="yearsOfExperience" className={classNames({ "p-error": errors.name })}
                   >
