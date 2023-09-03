@@ -12,7 +12,8 @@ import { InputMask } from "primereact/inputmask";
 import { Calendar } from "primereact/calendar";
 import { Dropdown } from "primereact/dropdown";
 import { MultiSelect } from "primereact/multiselect";
-        import { InputNumber } from "primereact/inputnumber";
+import { InputNumber } from "primereact/inputnumber";
+
 
 
 export default function UserUpdateForm({ setUpdate }) {

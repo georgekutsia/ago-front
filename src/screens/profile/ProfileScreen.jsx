@@ -1,12 +1,16 @@
 import React, { useContext, useState } from 'react'
 import { LoggedContext } from '../../shared/contexts/JwtContext';
-import { ButtonComponentEdit, UserUpdateForm } from '../../components';
+import { ButtonComponentEdit, MapView, UserUpdateForm } from '../../components';
+
+
 
 function ProfileScreen() {
   const { userData, setUserData } = useContext(LoggedContext);
   const [update, setUpdate] = useState ()
+  
   return (
     <div className="profile">
+      <MapView />
       <section >
         <p>{userData?.name}</p>
         <img src={userData?.img} alt="User" width={200} />

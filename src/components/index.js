@@ -6,3 +6,4 @@ export { default as ButtonComponentLogRegToggle } from "./buttons/ButtonComponen
 export { default as ButtonComponentEdit } from "./buttons/ButtonComponentEdit";
 export { default as NavbarComponent } from "./navbar/NavbarComponent";
 export { default as UserUpdateForm } from "./profile/update/UserUpdateForm";
+export { default as MapView } from "./map/MapView";
