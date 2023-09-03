@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react'
-import { ButtonComponentLogRegToggle, LoginComponent, RegisterComponent } from '../../components';
+import { ButtonComponentLogRegToggle, GalleryComponent, LoginComponent, RegisterComponent } from '../../components';
 import { LoggedContext } from '../../shared/contexts/JwtContext';
 
 function HomeScreen() {
@@ -11,6 +11,7 @@ function HomeScreen() {
   }
   return (
     <div>
+    <GalleryComponent></GalleryComponent>
       {!userData && (
         <>
           {logReg && <RegisterComponent setLogReg={setLogReg} />}

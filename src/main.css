@@ -1,3 +1,4 @@
+@charset "UTF-8";
 body {
   font-family: var(--font-family);
   background-color: rgb(255, 255, 255);
@@ -110,7 +111,7 @@ a {
 
 .register {
   text-align: center;
-  padding: 30vh 30vw;
+  padding: 30vh 20vw;
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -253,12 +254,16 @@ a {
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  width: 300px;
+  width: 430px;
   justify-content: center;
   margin: 20px;
   position: absolute;
   right: 0;
   top: 50px;
+}
+.updateUser .double-input {
+  display: flex;
+  justify-content: space-evenly;
 }
 
 .formDemoUpdateUser .card {
@@ -297,12 +302,33 @@ a {
 .companies-box {
   padding: 100px;
 }
+.companies-box-title {
+  text-align: center;
+  border-bottom: 2px solid rgba(38, 102, 103, 0.63);
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+}
+.companies-box-title-p1 {
+  animation: slideInOut 20s linear infinite;
+  font-size: 20px;
+  transform-origin: 100% 50%;
+  display: inline-block;
+}
+.companies-box-title-p2 {
+  animation: slideInOut2 20s linear infinite;
+  font-size: 30px;
+  position: absolute;
+  top: 50px;
+  left: 30%;
+}
 .companies-box h2 {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 .companies-box-ul {
   justify-content: space-evenly;
   flex-wrap: wrap;
+  padding: 0px;
 }
 .companies-box-ul-section {
   display: flex;
@@ -344,4 +370,33 @@ a {
   padding-top: 50px;
   min-width: 300px;
   box-shadow: 2px 2px 3px rgb(26, 11, 36);
+}
+
+@keyframes slideInOut {
+  0% {
+    transform: translateX(110%); /* Inicia fuera de la vista a la derecha */
+  }
+  100% {
+    transform: translateX(-120%); /* Llega a la izquierda al final de la animación */
+  }
+}
+@keyframes slideInOut2 {
+  0% {
+    opacity: 1;
+  }
+  17% {
+    opacity: 1;
+  }
+  19% {
+    opacity: 0;
+  }
+  79% {
+    opacity: 0;
+  }
+  81% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
 }/*# sourceMappingURL=main.css.map */
