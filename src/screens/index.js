@@ -5,3 +5,4 @@ export { default as ProfileScreen } from "./profile/ProfileScreen";
 export { default as CompanyScreen } from "./company/CompanyScreen";
 export { default as CEOGalleyComponent } from "./company/CEOGalleyComponent";
 export { default as AdsGalleyComponent } from "./company/AdsGalleyComponent";
+export { default as UsersScreen } from "./users/UsersScreen";

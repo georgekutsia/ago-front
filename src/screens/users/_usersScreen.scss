@@ -1,0 +1,24 @@
+.usersScreen{
+  padding: 60px 5vw;
+  &-section{
+    display: flex;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.255);
+    margin-top: 10px;
+    padding: 10px;
+    &-divImg{
+      position: relative;
+      img{
+        width: 250px;
+      }
+      h4{
+        position: absolute;
+        bottom: 0;
+        text-shadow: 1px 1px 5px white;
+        backdrop-filter: blur(10px);
+      }
+    }
+    &-divInfo{
+      padding: 15px 10px;
+    }
+  }
+}

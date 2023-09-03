@@ -11,7 +11,7 @@ function HomeScreen() {
   }
   return (
     <div>
-    <GalleryComponent></GalleryComponent>
+    {/* <GalleryComponent></GalleryComponent> */}
       {!userData && (
         <>
           {logReg && <RegisterComponent setLogReg={setLogReg} />}
