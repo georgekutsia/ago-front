@@ -292,6 +292,11 @@ a {
     padding: 0vw;
   }
 }
+.leaflet-container {
+  width: 50vw;
+  height: 50vh;
+}
+
 .profile {
   padding-top: 60px;
   display: flex;
