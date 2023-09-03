@@ -10,7 +10,7 @@ function ProfileScreen() {
   
   return (
     <div className="profile">
-      <MapView />
+      <MapView setLatitude={userData?.map?.x} setLenght={userData?.map?.y}/>
       <section >
         <p>{userData?.name}</p>
         <img src={userData?.img} alt="User" width={200} />

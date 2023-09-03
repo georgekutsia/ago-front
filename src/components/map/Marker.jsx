@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { Marker } from "react-leaflet";
 import {VenueLocationIcon} from "./icon/VenueLocation"
 
 const Markers = () => {
+    const [latitude,  setLatitude] = useState("" || 43.2627);
+    const [lenght,  setLenght] = useState("" || -2.9253);
     
     return (
-        <Marker position ={{lat:"43.263816",lng: "-2.938928"}} icon={VenueLocationIcon}/>
+        <Marker position ={{lat: latitude,lng: lenght}} icon={VenueLocationIcon}/>
     )
     
 }
