@@ -27,7 +27,7 @@ function Confirm() {
       const response = await putConfirmUser(userData._id, updatedData);
       setConfirming(false)
       setTimeout(() => {
-        navigate('/home');
+        navigate('/');
       }, 1000);
       console.log("Respuesta de actualización:", response);
     } catch (error) {
