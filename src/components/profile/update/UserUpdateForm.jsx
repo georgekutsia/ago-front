@@ -124,6 +124,26 @@ const handleTypeChange = (e) => {
               </div>
               {/* /name */}
               {/* /name */}
+            {/* img */}
+            {/* img */}
+              <div className="field">
+                <span className="p-float-label">
+                  <Controller name="img" control={control} rules={{ required: "Nombre es requerido.", maxLength: { value: 130, message:   "la url para la imágen debería ser mas corta",}, 
+                  minLength: { value: 3, message: "El nombre debe tener más de 3 caracteres",},}}
+                    render={({ field, fieldState }) => (
+                      <InputText id={field.img} value={userData?.img} {...field} autoFocus className={classNames({"p-invalid": fieldState.invalid,})} />
+                    )}
+                  />
+                  <label htmlFor="img" className={classNames({ "p-error": errors.name })}>
+                  Imagen del perfil
+                  </label>
+                </span>
+                {getFormErrorMessage("img")}
+              </div>
+              {/* /img */}
+              {/* /img */}
+              {/* /name */}
+              {/* /name */}
               <div className="field">
                 <span className="p-float-label p-input-icon-right">
                   <i className="pi pi-envelope" />
@@ -202,7 +222,7 @@ const handleTypeChange = (e) => {
                     render={({ field, fieldState }) => (
                       <InputMask id={field.name} {...field}  mask="+99-999-999-999" placeholder="+99-999999"  className={classNames({ "p-invalid": fieldState.invalid,})}/>)}/>
                   <label htmlFor="phoneNumber" className={classNames({ "p-error": errors.name })}>
-                   Teléfono {userData?.phoneNumber}
+                    Teléfono {userData?.phoneNumber}
                   </label>
                 </span>
                 {getFormErrorMessage("phoneNumber")}
@@ -233,14 +253,13 @@ const handleTypeChange = (e) => {
                   />
                   <label htmlFor="yearsOfExperience" className={classNames({ "p-error": errors.name })}
                   >
-                   Experiencia desde  {userData?.yearsOfExperience}
+                    Experiencia desde  {userData?.yearsOfExperience}
                   </label>
                 </span>
                 {getFormErrorMessage("yearsOfExperience")}
               </div>
 {/* yearsOfExperience */}
 {/* yearsOfExperience */}
-
 
               <Button type="submit" label="Actualizar" className="mt-2" />
             </div>

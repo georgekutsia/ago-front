@@ -5,30 +5,6 @@ import { setError } from "./errorHandler";
 const http = axios.create({baseURL:"http://localhost:5003", withCredentials:true})
 
 
-
-// export async function userRegister(data) {
-//   try {
-//     console.log("registrando", data);
-//     await http.post("/user/register", data);
-//   } catch (error) {
-//     console.log("errorsssss ", error.response.data.message)
-//     setError(error.response.data.message);
-//   }
-// }
-
-// export async function userLogin(data) {
-//     console.log("logando", data);
-//     const res = await http.post("/user/login", data);
-//   localStorage.setItem("token", res.data.token);
-//   localStorage.setItem("user", JSON.stringify(res.data.user));
-// }
-
-//   export function logout() {
-//     localStorage.removeItem('user');
-//     return localStorage.removeItem('token');
-//   }
-
-
 export async function getCompanies() {
   const response = await http.get(`/company`);
   return response.data;
