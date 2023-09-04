@@ -117,7 +117,7 @@ const handleTypeChange = (e) => {
                     )}
                   />
                   <label htmlFor="name" className={classNames({ "p-error": errors.name })}>
-                   Aes {userData?.name}
+                  {userData?.name}
                   </label>
                 </span>
                 {getFormErrorMessage("name")}
@@ -149,8 +149,8 @@ const handleTypeChange = (e) => {
                 {getFormErrorMessage("email")}
               </div>
               <div className="field">
-                <span className="p-float-label">
-                  <Controller name="password" control={control} rules={{ required: "Password is required." }} render={({ field, fieldState }) => (
+                <span hidden className="p-float-label">
+                  <Controller name="password"  control={control} rules={{ required: "Password is required." }} render={({ field, fieldState }) => (
                       <Password id={field.name} {...field} toggleMask className={classNames({
                           "p-invalid": fieldState.invalid,
                         })} header={passwordHeader} footer={passwordFooter}
