@@ -26,7 +26,6 @@ const getLocation = async  () =>{
   return (
     <LoggedContext.Provider value={{userData, setUserData, jwtData, setJwtData, currentLocation, setCurrentLocation, getLocation }}>
     <div className="App">
-
         <NavbarComponent />
         <Routers />
         <FooterComponent/>

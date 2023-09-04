@@ -327,6 +327,71 @@ a {
   justify-content: space-between;
   padding: 5vw;
 }
+.profile-buttons {
+  background-color: blue;
+}
+
+.ul-profile {
+  position: relative;
+  display: flex;
+  padding: 0px;
+}
+
+.ul-profile li {
+  position: relative;
+  list-style: none;
+  margin: 0 20px;
+  cursor: pointer;
+  padding: 12px 0px;
+}
+
+.ul-profile li a {
+  text-decoration: none;
+}
+
+.ul-profile li a .prof-btn {
+  font-size: 3rem;
+  color: #222;
+}
+
+.ul-profile li a::before {
+  font-family: "FontAwesome";
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 3rem;
+  height: 0;
+  overflow: hidden;
+  transition: 0.5s ease-in-out;
+}
+
+.ul-profile li:nth-child(1) a::before {
+  content: "\f0c0";
+  background-image: linear-gradient(45deg, #ffffff 0%, #3ce0e6 25%, #5f18bc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  border-bottom: 4px solid #3ce0e6;
+}
+
+.ul-profile li:nth-child(2) a::before {
+  content: "\f086";
+  background-image: linear-gradient(45deg, #ffffff 0%, #3ce65e 25%, #2fa456 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  border-bottom: 4px solid #27dc4b;
+}
+
+.ul-profile li:nth-child(3) a::before {
+  content: "\f0b1";
+  background-image: linear-gradient(45deg, #ffffff 0%, #e69a3c 25%, #a49a2f 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  border-bottom: 4px solid #dca927;
+}
+
+.ul-profile li:hover a::before {
+  height: 100%;
+}
 
 .companies-box {
   padding: 100px;

@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { LoggedContext } from '../../shared/contexts/JwtContext';
 import { ButtonComponentEdit, MapView, UserUpdateForm } from '../../components';
 import { getOneUser } from '../../shared/services/api';
+import { Link } from 'react-router-dom';
 
 
 
@@ -9,7 +10,8 @@ function ProfileScreen() {
   const { userData, setUserData } = useContext(LoggedContext);
   const [userInfo, setUserInfo] = useState([]);
   const [mapToggle, setMapToggle] = useState(false);
-  
+  const [toggleSpecialization, setToggleSpecialization] = useState(false)
+  const [toggleForm, setToggleForm] = useState(false)
 
   const [update, setUpdate] = useState ()
 
@@ -34,15 +36,24 @@ function ProfileScreen() {
   return (
     <div className="profile">
       <section >
-        <p>{userInfo?.name}</p>
+        <p>{userInfo?.description}</p>
         <img src={userInfo?.img} alt="User" width={200} />
+        <p>{userInfo?.name}</p>
         <p>{userInfo?.email}</p>
         <p>{userInfo?.phoneNumber}</p>
         <p>{userInfo?.age}</p>
-      {userInfo.specialization &&  userInfo.specialization.map((spec, index) =>
-        (  <div key={index} className='d-flex'>
-            <img src={spec.img} alt={spec.name} width={30} />
+        <ul className='ul-profile'>
+          <li><Link ><i className="fa-solid fa-users prof-btn"></i></Link></li>
+          <li><Link ><i className="fa-solid fa-comments prof-btn"></i></Link></li>
+          <li><Link onClick={()=>setToggleSpecialization(!toggleSpecialization)}><i className="fa-solid fa-briefcase prof-btn"></i></Link></li>
+      </ul>
+      {toggleSpecialization && userInfo.specialization &&  userInfo.specialization.map((spec, index) =>
+        (  <div key={index} className='d-flex' data-aos="zoom-out-right">
+            <img src={spec.img} alt={spec.name} width={30} height={30} />
+            <div>
             <h5>{spec.name}</h5>
+            <p>{spec.description}</p>
+            </div>
             </div>)) }
       {userInfo.comments &&  userInfo.comments.map((spec, index) =>
         (  <div key={index} className='d-flex'>
@@ -52,12 +63,10 @@ function ProfileScreen() {
         (  <div key={index} className='d-flex'>
             <p>{formatearFecha(spec.day)}</p>
             <p>{spec.direction}</p>
-      {spec.hours &&  spec.hours.map((ho, index) =>
-      <p>{ho.split("-").join(", ")}</p>
-      )}
-            
+                {spec.hours &&  spec.hours.map((ho, index) =>
+                <p>{ho.split("-").join(", ")}</p>
+                )}
             </div>)) }
-        <p>{userInfo?.age}</p>
       {mapToggle &&
         <MapView setLatitude={userData?.map?.x} setLenght={userData?.map?.y}/>
       }

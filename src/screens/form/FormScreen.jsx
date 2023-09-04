@@ -3,7 +3,7 @@ import { useForm, Controller } from "react-hook-form";
 import { InputText } from "primereact/inputtext";
 import { Button } from "primereact/button";
 import { useNavigate, useParams } from 'react-router-dom';
-import { postForm } from "../../shared/services/formApi"; // Assuming this is correctly importing your API function
+import { postForm } from "../../shared/services/formApi";
 import { classNames } from "primereact/utils";
 import { Calendar } from "primereact/calendar";
 import { Mention } from 'primereact/mention';
@@ -23,23 +23,12 @@ export default function FormScreen({ setUpdate }) {
   const onHoursChange = (e) => {
     const selectedHour = e.value;
     if (e.checked) {
-      // Agregar la hora seleccionada al array 'hours'
       setHours((prevHours) => [...prevHours, selectedHour]);
     } else {
-      // Eliminar la hora seleccionada del array 'hours'
       setHours((prevHours) => prevHours.filter((hour) => hour !== selectedHour));
     }
   };
-  const onIngredientsChange = (e) => {
-      let _ingredients = [...ingredients];
 
-      if (e.checked)
-          _ingredients.push(e.value);
-      else
-          _ingredients.splice(_ingredients.indexOf(e.value), 1);
-
-      setIngredients(_ingredients);
-  }
 
   useEffect(() => {
     const userDataFromLocalStorage = JSON.parse(localStorage.getItem("user"));
@@ -59,7 +48,7 @@ export default function FormScreen({ setUpdate }) {
       data.hours = hours;
       data.confirmed = false;
       data.closed = false;
-      const response = await postForm(id, worker, data); // Llamada a la API corregida
+      const response = await postForm(id, worker, data); 
       console.log("Respuesta de registro:", response);
     } catch (error) {
       console.error("Error al registrar:", error);
