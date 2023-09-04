@@ -21,22 +21,19 @@ function Confirm() {
         console.error("Error al obtener información del usuario:", error);
       });
   }, [id]);
-
-
-const onSubmit = async (data) => {
-  try {
-    const updatedData = { ...userData, confirmed: true, confirmation: data.confirmation };
+  const onSubmit = async (data) => {
+    try {
+      const updatedData = { ...userData, confirmed: true, confirmation: data.confirmation };
     const response = await putConfirmUser(userData._id, updatedData);
-    setConfirming(false);
-    setTimeout(() => {
-      navigate('/home');
-    }, 1000);
-    console.log("Respuesta de actualización:", response);
-  } catch (error) {
-    console.error("Error al actualizar:", error);
-  }
-};
-
+      setConfirming(false)
+      setTimeout(() => {
+        navigate('/');
+      }, 1000);
+      console.log("Respuesta de actualización:", response);
+    } catch (error) {
+      console.error("Error al actualizar:", error);
+    }
+  };
 
   return (
     <section className="confirming">

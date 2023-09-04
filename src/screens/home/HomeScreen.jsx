@@ -5,6 +5,9 @@ import { LoggedContext } from '../../shared/contexts/JwtContext';
 function HomeScreen() {
   const [logReg, setLogReg] = useState(false)
   const { userData, setUserData } = useContext(LoggedContext);
+  const { setHidden } = useContext(LoggedContext);
+
+  setHidden(false);
 
   const handleToggle = ()=>{
     setLogReg(!logReg)

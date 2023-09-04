@@ -14,6 +14,7 @@ export default function LoginComponent() {
   const [formData, setFormData] = useState({});
   const { control, handleSubmit, formState: { errors },} = useForm();
   const {userData, setUserData, setJwtData } = useContext(LoggedContext);
+  const { setHidden } = useContext(LoggedContext);
 
   const onSubmit = async (data) => {
     try {
@@ -23,7 +24,8 @@ export default function LoginComponent() {
       const userId = JSON.parse(localStorage.getItem("user"));
       setUserData(userId);
       setJwtData(localStorage.getItem("token"));
-      // navigation("/home");
+      // navigation("/");
+      setHidden(true)
       navigation(`/profile/${userId._id}`);
       console.log("Respuesta de logeo:", response);
     } catch (error) {

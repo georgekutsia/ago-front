@@ -10,7 +10,7 @@ function Routers() {
   return (
     <div>
         <Routes>
-          <Route path="/home" element={<HomeScreen/>} /> {/*Home puede tener login*/}
+          <Route path="/" element={<HomeScreen/>} /> {/*Home puede tener login*/}
           <Route path="/login" element={<HomeScreen/>} />
           <Route path="/register" element={<HomeScreen/>} />
           <Route path="/users" element={<UsersScreen/>} />

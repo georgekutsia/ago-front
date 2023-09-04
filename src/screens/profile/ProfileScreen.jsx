@@ -19,7 +19,6 @@ function ProfileScreen() {
       try {
         const data = await getOneUser(userData?._id);
         setUserInfo(data);
-        console.log('%cMyProject%cline:17%cdata', 'color:#fff;background:#ee6f57;padding:3px;border-radius:2px', 'color:#fff;background:#1f3c88;padding:3px;border-radius:2px', 'color:#fff;background:rgb(153, 80, 84);padding:3px;border-radius:2px', data)
       } catch (error) {
         console.error("Error al obtener datos de la empresa:", error);
       }

@@ -89,7 +89,7 @@ export default function NavbarComponent() {
          {
            label: "Página principal",
            icon: "pi pi-fw pi-pencil",
-           url:"/home",
+           url:"/",
            items: [
              {
                label: "Save",
@@ -117,11 +117,11 @@ export default function NavbarComponent() {
     const handleLogout = () => {
       logout();
       setUserData(false);
-      navigation("/home");
+      navigation("/");
     };
     const navigateToLogin = () => {
 
-      navigation("/home");
+      navigation("/");
     };
     const end = (
       <div className='navbar-name'>
