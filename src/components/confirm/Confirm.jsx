@@ -21,10 +21,10 @@ function Confirm() {
         console.error("Error al obtener información del usuario:", error);
       });
   }, [id]);
-  const onSubmit = async () => {
+  const onSubmit = async (data) => {
     try {
-      const updatedData = { ...userData, confirmed: true };
-      const response = await putConfirmUser(userData._id, updatedData);
+      const updatedData = { ...userData, confirmed: true, confirmation: data.confirmation };
+    const response = await putConfirmUser(userData._id, updatedData);
       setConfirming(false)
       setTimeout(() => {
         navigate('/');

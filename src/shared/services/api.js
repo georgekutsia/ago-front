@@ -48,3 +48,10 @@ export async function getUsers() {
 }
 
 
+export async function deleteUser(id) {
+  console.log("Recibida información de todos los usuarios");
+  const response = await http.delete(`/user/${id}`);
+  return response.data;
+}
+
+
