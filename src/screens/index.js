@@ -6,3 +6,4 @@ export { default as CompanyScreen } from "./company/CompanyScreen";
 export { default as CEOGalleyComponent } from "./company/CEOGalleyComponent";
 export { default as AdsGalleyComponent } from "./company/AdsGalleyComponent";
 export { default as UsersScreen } from "./users/UsersScreen";
+export { default as FormScreen } from "./form/FormScreen";

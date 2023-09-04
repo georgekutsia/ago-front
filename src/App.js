@@ -13,6 +13,7 @@ function App() {
   const [userData,  setUserData] = useState(JSON.parse(localStorage.getItem("user") || "null"));
   const [jwtData,  setJwtData] = useState(localStorage.getItem("token") || false)
  const[currentLocation, setCurrentLocation] = useState({})
+ 
 useEffect(() => {
 getLocation();
 }, [])
@@ -23,7 +24,7 @@ const getLocation = async  () =>{
 }
 
   return (
-    <LoggedContext.Provider value={{userData, setUserData, jwtData, setJwtData, currentLocation, setCurrentLocation}}>
+    <LoggedContext.Provider value={{userData, setUserData, jwtData, setJwtData, currentLocation, setCurrentLocation, getLocation }}>
     <div className="App">
 
         <NavbarComponent />

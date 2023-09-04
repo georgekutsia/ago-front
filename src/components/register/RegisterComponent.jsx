@@ -79,7 +79,6 @@ export default function RegisterComponent({ setLogReg }) {
     if(selectedRole === null){
       setSelectedRole("ROLE_USER")
     }
-    console.log('%cMyProject%cline:78%cselectedRole', 'color:#fff;background:#ee6f57;padding:3px;border-radius:2px', 'color:#fff;background:#1f3c88;padding:3px;border-radius:2px', 'color:#fff;background:rgb(254, 67, 101);padding:3px;border-radius:2px', selectedRole)
     
     data.companyTypes = selectedTypeCompany;
     const error = await  getError();
@@ -106,7 +105,6 @@ export default function RegisterComponent({ setLogReg }) {
           <div className="card">
             <h3 className="text-center">Registrarse</h3>
             <div className="p-fluid">
-
 
             {/* role */}
             {/* role */}

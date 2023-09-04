@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { Route, Routes } from "react-router-dom";
-import { CompanyScreen, HomeScreen, ProfileScreen, UsersScreen } from './screens/index.js';
+import { CompanyScreen, HomeScreen, ProfileScreen, UsersScreen, FormScreen } from './screens/index.js';
 import RequireAuth  from "./shared/components/RequireAuth/RequireAuth.jsx";
 import { LoggedContext } from './shared/contexts/JwtContext.js';
 import Confirm from './components/confirm/Confirm.jsx';
@@ -22,6 +22,7 @@ function Routers() {
           <Route path="/companies" element={<CompanyScreen/>} /> {/*Perfil de companyr*/}
           <Route path="/company/:id" element={<HomeScreen/>} /> {/*Edit de company*/}
           <Route path="/jobs" element={<HomeScreen/>} /> {/*Lista de los trabajadores para filtrar por ellos, ver anuncios etc*/}
+          <Route path="/form/:id/:worker" element={<FormScreen/>} /> {/*Forms*/}
         </Routes></div>
   )
 }

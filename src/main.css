@@ -200,6 +200,7 @@ a {
   position: fixed;
   bottom: 0;
   width: 100%;
+  z-index: 90;
 }
 
 .buttonToggleLogReg {
@@ -265,7 +266,7 @@ a {
   margin: 20px;
   position: absolute;
   right: 0;
-  top: 50px;
+  top: 150px;
 }
 .updateUser .double-input {
   display: flex;
@@ -301,6 +302,17 @@ a {
 .leaflet-container {
   width: 30vw;
   height: 30vh;
+}
+
+.mapper {
+  width: 40px;
+  background-color: blue;
+}
+
+.confirming {
+  text-align: center;
+  margin: auto;
+  padding-top: 40vh;
 }
 
 .confirming {
@@ -417,6 +429,118 @@ a {
     opacity: 1;
   }
 }
+.companies-box {
+  padding: 100px;
+}
+.companies-box-title {
+  text-align: center;
+  border-bottom: 2px solid rgba(38, 102, 103, 0.63);
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+}
+.companies-box-title-p1 {
+  animation: slideInOut 20s linear infinite;
+  font-size: 20px;
+  transform-origin: 100% 50%;
+  display: inline-block;
+}
+.companies-box-title-p2 {
+  animation: slideInOut2 20s linear infinite;
+  font-size: 30px;
+  position: absolute;
+  top: 50px;
+  left: 30%;
+}
+.companies-box h2 {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.companies-box-ul {
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  padding: 0px;
+}
+.companies-box-ul-section {
+  display: flex;
+  overflow: hidden;
+}
+.companies-box .company-card {
+  padding: 10px;
+  margin: 10px;
+  min-height: 300px;
+  background-color: rgb(98, 148, 172);
+  min-width: 350px;
+}
+.companies-box .company-card img {
+  height: 140px;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.btn-ceo {
+  padding: 5px 10px;
+  border-radius: 4px;
+  background-color: rgb(98, 148, 172);
+}
+
+.adsGalleyComponent {
+  display: flex;
+}
+
+.adsGalleyComponent {
+  display: flex;
+  overflow-x: auto;
+  border-bottom: 0.5px black solid;
+  padding: 20px;
+}
+
+.advertisement {
+  padding: 10px;
+  margin-right: 10px;
+  padding-top: 50px;
+  min-width: 300px;
+  box-shadow: 2px 2px 3px rgb(26, 11, 36);
+}
+
+@keyframes slideInOut {
+  0% {
+    transform: translateX(110%); /* Inicia fuera de la vista a la derecha */
+  }
+  100% {
+    transform: translateX(-120%); /* Llega a la izquierda al final de la animación */
+  }
+}
+@keyframes slideInOut2 {
+  0% {
+    opacity: 1;
+  }
+  17% {
+    opacity: 1;
+  }
+  19% {
+    opacity: 0;
+  }
+  79% {
+    opacity: 0;
+  }
+  81% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.checker-form {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.formPetition {
+  width: 500px;
+  margin: auto;
+  padding-top: 20vh;
+}
+
 .usersScreen {
   padding: 60px 5vw;
 }

@@ -25,13 +25,14 @@ function ProfileScreen() {
     };
     fetchData();
   }, []);
-
+  function formatearFecha(fecha) {
+    const opciones = { year: 'numeric', month: 'long', day: 'numeric' };
+    const fechaFormateada = new Date(fecha).toLocaleDateString('es-ES', opciones);
+    return fechaFormateada;
+  }
 
   return (
     <div className="profile">
-    {mapToggle &&
-      <MapView setLatitude={userData?.map?.x} setLenght={userData?.map?.y}/>
-    }
       <section >
         <p>{userInfo?.name}</p>
         <img src={userInfo?.img} alt="User" width={200} />
@@ -47,11 +48,23 @@ function ProfileScreen() {
         (  <div key={index} className='d-flex'>
             <p>{spec.text}</p>
             </div>)) }
+      {userInfo.petitions &&  userInfo.petitions.map((spec, index) =>
+        (  <div key={index} className='d-flex'>
+            <p>{formatearFecha(spec.day)}</p>
+            <p>{spec.direction}</p>
+      {spec.hours &&  spec.hours.map((ho, index) =>
+      <p>{ho.split("-").join(", ")}</p>
+      )}
+            
+            </div>)) }
         <p>{userInfo?.age}</p>
+      {mapToggle &&
+        <MapView setLatitude={userData?.map?.x} setLenght={userData?.map?.y}/>
+      }
       </section>
       <section>
-        {!update && <ButtonComponentEdit setClicking={setUpdate} clicked={update} btnText={"Editar perfil"}/>}
-        {!mapToggle && <ButtonComponentEdit setClicking={setMapToggle} clicked={mapToggle} btnText={"Ver mapa"}/>}
+        <ButtonComponentEdit setClicking={setUpdate} clicked={update} btnText={"Editar perfil"}/>
+         <ButtonComponentEdit setClicking={setMapToggle} clicked={mapToggle} btnText={"Ver mapa"}/>
         {update && <UserUpdateForm setUpdate={setUpdate}></UserUpdateForm>}
       </section>
     </div>
