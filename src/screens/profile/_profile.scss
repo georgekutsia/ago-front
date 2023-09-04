@@ -1,78 +1,110 @@
 .profile{
-  padding-top: 60px;
+  padding-top: 160px;
   display: flex;
   justify-content: space-between;
-  padding: 5vw;
-  &-buttons{
-    background-color: blue;
-  }
-}
-
-
-
-.ul-profile {
-  position: relative;
+  padding: 10vh 5vw; 
+  &-section{
   display: flex;
-  padding: 0px;
-  
-}
-.ul-profile li {
-  position: relative;
-  list-style: none;
-  margin: 0 20px;
-  cursor: pointer;
-  padding: 12px 0px;
-}
-.ul-profile li a {
-  text-decoration: none;
-}
-.ul-profile li a .prof-btn {
-  font-size: 3rem;
-  color: #222;
-  
-}
-.ul-profile li a::before {
-  font-family: "FontAwesome";
-  position: absolute;
-  top: 0;
-  left: 0;
-  font-size: 3rem;
-  height: 0;
-  overflow: hidden;
-  transition: 0.5s ease-in-out;
-  
+    justify-content: space-between;
+    &-userInfo{
+      &-img{
+        width:100px;
+        border-radius: 10px;
+      }
+      display: flex;
+      justify-content: space-between;
+      width: 90vw;
+      .ulInfo{
+          border-bottom: 2px solid black;
+          &-profile{
+            gap: 4vw;
+              position: relative;
+              display: flex;
+              padding: 0px;
+              justify-content: center;
+             li {
+              position: relative;
+              list-style: none;
+              margin: 0 20px;
+              cursor: pointer;
+              padding: 9px 0px;
+            }
+             li a {
+              text-decoration: none;
+            }
+             li a .prof-btn {
+              font-size: 2.3rem;
+              color: #222;
+            }
+             li a::before {
+              font-family: "FontAwesome";
+              position: absolute;
+              top: 0;
+              left: 0;
+              font-size: 2.3rem;
+              height: 0;
+              overflow: hidden;
+              transition: 0.5s ease-in-out;
+            }
+            
+             li:nth-child(1) a::before {
+              content: "\f0c0";
+              background-image: linear-gradient(45deg, 
+                #ffffff 0%,#3ce0e66b 25%,
+                #18bcb65e 100%);
+              -webkit-background-clip: text;
+               -webkit-text-fill-color: transparent;
+              border-bottom: 4px solid black;
+            }
+             li:nth-child(2) a::before {
+              content: "\f086";
+              background-image: linear-gradient(45deg, 
+                #ffffff 0%,#3ce65e68 25%,
+                #2fa4565f 100%);
+              -webkit-background-clip: text;
+               -webkit-text-fill-color: transparent;
+               border-bottom: 4px solid black;
+            
+            }
+             li:nth-child(3) a::before {
+              content: "\f0b1";
+              background-image: linear-gradient(45deg, 
+                #ffffff 0%,#e69a3c66 25%,
+                #a49a2f72 100%);
+              -webkit-background-clip: text;
+               -webkit-text-fill-color: transparent;
+               border-bottom: 4px solid black;
+            }
+             li:nth-child(4) a::before {
+              content: "\f040";
+              background-image: linear-gradient(45deg, 
+                #ffffff 0%,#d8f98d72 25%,
+                #a49a2f6a 100%);
+              -webkit-background-clip: text;
+               -webkit-text-fill-color: transparent;
+               border-bottom: 4px solid black;
+            }
+             li:nth-child(5) a::before {
+              content: "\f279";
+              background-image: linear-gradient(45deg, 
+                #ffffff 0%,#f98d8d6c 25%,
+                #ff9d9d77 100%);
+              -webkit-background-clip: text;
+               -webkit-text-fill-color: transparent;
+               border-bottom: 4px solid black;
+            }
+             li:hover a::before {
+              height: 100%;
+            
+            }
+
+
+
+          }
+        }
+      }
+    }
 }
 
-.ul-profile li:nth-child(1) a::before {
-  content: "\f0c0";
-  background-image: linear-gradient(45deg, 
-    #ffffff 0%,#3ce0e6 25%,
-    #5f18bc 100%);
-  -webkit-background-clip: text;
-   -webkit-text-fill-color: transparent;
-  border-bottom: 4px solid #3ce0e6;
-  
-}
-.ul-profile li:nth-child(2) a::before {
-  content: "\f086";
-  background-image: linear-gradient(45deg, 
-    #ffffff 0%,#3ce65e 25%,
-    #2fa456 100%);
-  -webkit-background-clip: text;
-   -webkit-text-fill-color: transparent;
-   border-bottom: 4px solid #27dc4b;
 
-}
-.ul-profile li:nth-child(3) a::before {
-  content: "\f0b1";
-  background-image: linear-gradient(45deg, 
-    #ffffff 0%,#e69a3c 25%,
-    #a49a2f 100%);
-  -webkit-background-clip: text;
-   -webkit-text-fill-color: transparent;
-   border-bottom: 4px solid #dca927;
-}
-.ul-profile li:hover a::before {
-  height: 100%;
 
-}
