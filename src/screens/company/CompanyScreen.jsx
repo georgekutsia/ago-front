@@ -72,16 +72,11 @@ console.log("data de las compañias",companiesData);
                   <NavLink href="#" className="card-link">
                     Buscar trabajo{" "}
                   </NavLink>
-                  <button
-                    className="btn-ceo"
-                    onClick={() => toggleCEOGallery(index)}
-                  >
+                  <button className="btn-ceo" onClick={() => toggleCEOGallery(index)}>
                     {isOpen && openCardIndex === index ? "Cerrar" : "Ver C.E.O"}
                   </button>
-                  {isOpen && openCardIndex === index && (
-                    <CEOGalleyComponent
-                      ceoData={company.id_user}
-                      companyName={company.name}
+                  {isOpen && openCardIndex === index && company.id_user &&(
+                    <CEOGalleyComponent ceoData={company.id_user} companyName={company.name}
                     />
                   )}
                 </div>

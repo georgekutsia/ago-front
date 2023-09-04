@@ -88,7 +88,6 @@ const handleTypeChange = (e) => {
 
   const onSubmit = async (data) => {
     data.specialization = typeSpecialization;
-
     try {
       setFormData(data);
       setShowMessage(true);
