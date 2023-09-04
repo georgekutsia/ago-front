@@ -2,7 +2,8 @@
 .mainLoader {
     width: 200px;
     position: absolute;
-    margin: 30vh 43vw;
+    top: 30vh;
+    left: 45vw;
     aspect-ratio: 1;
     display: grid;
     color: #854f1d;
@@ -33,7 +34,8 @@
 .mainLoader2 {
     width: 200px;
     position: absolute;
-    margin: 30vh 43vw;
+    top: 30vh;
+    left: 45vw;
     aspect-ratio: 1;
     display: grid;
     color: #854f1d;
@@ -60,4 +62,7 @@
 
 @keyframes l19 {
     100% { transform: rotate(1turn) }
+}
+.ba{
+    background-color: blue;
 }

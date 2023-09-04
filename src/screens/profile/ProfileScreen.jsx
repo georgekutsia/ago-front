@@ -8,6 +8,8 @@ import { getOneUser } from '../../shared/services/api';
 function ProfileScreen() {
   const { userData, setUserData } = useContext(LoggedContext);
   const [userInfo, setUserInfo] = useState([]);
+  const [mapToggle, setMapToggle] = useState(false);
+  
 
   const [update, setUpdate] = useState ()
 
@@ -27,7 +29,9 @@ function ProfileScreen() {
 
   return (
     <div className="profile">
+    {mapToggle &&
       <MapView setLatitude={userData?.map?.x} setLenght={userData?.map?.y}/>
+    }
       <section >
         <p>{userInfo?.name}</p>
         <img src={userInfo?.img} alt="User" width={200} />
@@ -47,6 +51,7 @@ function ProfileScreen() {
       </section>
       <section>
         {!update && <ButtonComponentEdit setClicking={setUpdate} clicked={update} btnText={"Editar perfil"}/>}
+        {!mapToggle && <ButtonComponentEdit setClicking={setMapToggle} clicked={mapToggle} btnText={"Ver mapa"}/>}
         {update && <UserUpdateForm setUpdate={setUpdate}></UserUpdateForm>}
       </section>
     </div>

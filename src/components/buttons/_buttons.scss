@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   &-btn{
-    position: absolute;
+    z-index: 400;
   }
 }
 
@@ -48,8 +48,7 @@
     padding: 10px 15px;
     margin-top: 10px;
     transition: 0.4s ease-in-out;
-      font-weight: 500;
-
+    font-weight: 500;
     &:hover{
       border-radius: 10px;
       border: 2px solid black;
