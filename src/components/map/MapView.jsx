@@ -5,18 +5,16 @@ import Markers from './Marker';
 
 const MapView = () => {
     
-    return <MapContainer center = {{ lat: 43.2627, lng: -2.9253 }} zoom ={13}>
-
     const [latitude,  setLatitude] = useState("" || 43.2627);
-    const [lenght,  setLenght] = useState("" || -2.9253);
+    const [length,  setLenght] = useState("" || -2.9253);
 
 
     return <div>
-        <MapContainer center = {{ lat: latitude, lng: lenght }} zoom ={13}>
+        <MapContainer center = {{ lat: latitude, lng: length }} zoom ={13}>
                 <TileLayer  url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         />
-         <Markers setLatitude={latitude} setLenght={lenght} />
+         <Markers latitude={latitude} length={length} />
 </MapContainer>
     </div>
 }

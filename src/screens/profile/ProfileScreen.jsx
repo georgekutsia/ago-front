@@ -27,7 +27,6 @@ function ProfileScreen() {
 
   return (
     <div className="profile">
-      <MapView />
       <MapView setLatitude={userData?.map?.x} setLenght={userData?.map?.y}/>
       <section >
         <p>{userInfo?.name}</p>

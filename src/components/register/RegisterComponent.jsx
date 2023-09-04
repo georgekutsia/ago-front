@@ -19,7 +19,7 @@ export default function RegisterComponent({ setLogReg }) {
   const navigation = useNavigate();
   const [showMessage, setShowMessage] = useState(false);
   const [formData, setFormData] = useState({});
-  const [selectedRole, setSelectedRole] = useState(null);
+  const [selectedRole, setSelectedRole] = useState("ROLE_USER");
   const [selectedTypeCompany, setSelectedTypeCompany] = useState(null);
   const { control, handleSubmit, formState: { errors }, } = useForm();
   const [errorMessage, setErrorMessage] = useState(null);
@@ -76,22 +76,23 @@ export default function RegisterComponent({ setLogReg }) {
 
   const onSubmit = async (data) => {
     data.role = selectedRole;
+    if(selectedRole === null){
+      setSelectedRole("ROLE_USER")
+    }
+    console.log('%cMyProject%cline:78%cselectedRole', 'color:#fff;background:#ee6f57;padding:3px;border-radius:2px', 'color:#fff;background:#1f3c88;padding:3px;border-radius:2px', 'color:#fff;background:rgb(254, 67, 101);padding:3px;border-radius:2px', selectedRole)
+    
     data.companyTypes = selectedTypeCompany;
-    const error = getError();
+    const error = await  getError();
     try {
       setFormData(data);
-      const response = await userRegister(data);
-          if (error) {
-            console.log("eeee", error);
-            setErrorMessage("Buena esa");
-            clearError();
-          } else {
-            console.log("eeee elese", error);
-            setErrorMessage("El email ya está registrado. Elige otro");
-            clearError();
-          }
-        // setShowMessage(true);
-          // setLogReg(false);
+      const response = await userRegister(data)
+      if (error === "the email already exists") {
+        console.log("equitecua",error)
+        setErrorMessage("El email ya está registrado. Elige otro");
+      } else if(error === null) {
+        setLogReg(false);
+      }
+      // setShowMessage(true);
       console.log("Respuesta de registro:", response);
     } catch (error) {
       console.error("Error al registrar:", error);
