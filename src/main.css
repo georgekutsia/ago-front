@@ -20,7 +20,8 @@ a {
 .mainLoader {
   width: 200px;
   position: absolute;
-  margin: 30vh 43vw;
+  top: 30vh;
+  left: 45vw;
   aspect-ratio: 1;
   display: grid;
   color: #854f1d;
@@ -51,7 +52,8 @@ a {
 .mainLoader2 {
   width: 200px;
   position: absolute;
-  margin: 30vh 43vw;
+  top: 30vh;
+  left: 45vw;
   aspect-ratio: 1;
   display: grid;
   color: #854f1d;
@@ -79,6 +81,10 @@ a {
     transform: rotate(1turn);
   }
 }
+.ba {
+  background-color: blue;
+}
+
 .navbar {
   position: fixed;
   width: 100%;
@@ -201,7 +207,7 @@ a {
   justify-content: center;
 }
 .buttonToggleLogReg-btn {
-  position: absolute;
+  z-index: 400;
 }
 
 .button-89 {
@@ -295,6 +301,12 @@ a {
 .leaflet-container {
   width: 50vw;
   height: 50vh;
+}
+
+.confirming {
+  text-align: center;
+  margin: auto;
+  padding-top: 40vh;
 }
 
 .profile {
