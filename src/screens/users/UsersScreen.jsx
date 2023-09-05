@@ -73,6 +73,8 @@ function UsersScreen() {
           <div className='usersScreen-section-divImg' >
             <img src={user.img} alt={user.name} />
             <h4>{user.name}</h4>
+            <h1>{user.comments.length}</h1>
+
           </div>
           {/* es feo que se vea la dirección completa, pero sí al menos la ciudad, así que esto apaña que de  Calle del Sol, 78, Valencia solo se vea Valencia*/}
           <div className='usersScreen-section-divInfo' data-aos="fade-down" data-aos-easing="ease-in-out" data-aos-duration="500" >

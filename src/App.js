@@ -18,6 +18,7 @@ function App() {
   );
   const [currentLocation, setCurrentLocation] = useState({});
   const [hidden, setHidden] = useState(false);
+  const [colorChange, setColorChange] = useState(true);
 
   useEffect(() => {
     // getLocation();
@@ -30,9 +31,7 @@ function App() {
 
   return (
     <LoggedContext.Provider
-      value={{ userData, setUserData, jwtData, setJwtData, setHidden, currentLocation, setCurrentLocation, getLocation,
-      }}
-    >
+      value={{ userData, setUserData, jwtData, setJwtData, setHidden, currentLocation, setCurrentLocation, getLocation,colorChange, setColorChange}}>
       <div className="App">
          <NavbarComponent></NavbarComponent>
         <Routers />
