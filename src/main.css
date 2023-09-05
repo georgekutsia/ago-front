@@ -270,13 +270,23 @@ a {
   display: flex;
   justify-content: space-evenly;
 }
+.updateUser .double-input span {
+  width: 100%;
+}
 
 .formDemoUpdateUser-div {
   padding: 14px;
 }
 
+.btn-mode-color {
+  padding: 5px 10px;
+  border-radius: 10px;
+  background-color: white;
+  color: black;
+}
+
 .formDemoUpdateUser .card {
-  min-width: 100px;
+  min-width: 310px;
   background-color: rgb(0, 142, 26);
 }
 
@@ -430,7 +440,6 @@ a {
   padding: 10vh 5vw;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(255, 183, 0, 0.048);
 }
 .profile-section {
   display: flex;
@@ -443,7 +452,6 @@ a {
   width: 90vw;
 }
 .profile-section-userInfo-div {
-  background-color: red;
   background-color: #9de2ff;
   padding: 20px;
   min-width: 400px;
@@ -457,8 +465,8 @@ a {
   border-bottom: 2px solid black;
 }
 .profile-section-userInfo .ulInfo-scrollable {
-  max-height: 350px;
-  max-width: 700px;
+  max-height: 700px;
+  max-width: 1000px;
   white-space: nowrap;
   overflow-y: scroll;
   overflow-x: scroll;
@@ -571,9 +579,27 @@ a {
     padding: 10px 50px;
     width: 450px;
   }
+  .ulInfo-scrollable {
+    height: 300px;
+  }
 }
+.btn-confirm-1 {
+  background-color: rgb(28, 101, 143);
+  margin-right: 30px;
+}
+
+.btn-confirm-2 {
+  background-color: rgb(184, 148, 3);
+}
+
+.active {
+  background-color: red;
+  color: blue;
+}
+
 .companies-box {
   padding: 100px;
+  background-color: rgb(227, 227, 228);
 }
 .companies-box-title {
   text-align: center;
@@ -612,7 +638,7 @@ a {
   margin: 10px;
   min-height: 300px;
   background-color: rgb(98, 148, 172);
-  min-width: 350px;
+  min-width: 550px;
 }
 .companies-box .company-card img {
   height: 140px;
@@ -628,21 +654,34 @@ a {
 
 .adsGalleyComponent {
   display: flex;
-}
-
-.adsGalleyComponent {
-  display: flex;
   overflow-x: auto;
   border-bottom: 0.5px black solid;
   padding: 20px;
 }
 
 .advertisement {
-  padding: 10px;
+  padding: 5px 20px;
   margin-right: 10px;
+  background-color: rgb(254, 255, 239);
   padding-top: 50px;
   min-width: 300px;
   box-shadow: 2px 2px 3px rgb(26, 11, 36);
+  border-radius: 10px;
+  position: relative;
+}
+.advertisement h5 {
+  border-bottom: 1px solid black;
+}
+.advertisement p {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.121);
+}
+.advertisement button {
+  position: absolute;
+  bottom: 0;
+  padding: 3px 5px;
+  border-radius: 5px;
+  background-color: rgb(0, 162, 255);
+  margin-bottom: 5px;
 }
 
 @keyframes slideInOut {
@@ -675,6 +714,7 @@ a {
 }
 .companies-box {
   padding: 100px;
+  background-color: rgb(227, 227, 228);
 }
 .companies-box-title {
   text-align: center;
@@ -713,7 +753,7 @@ a {
   margin: 10px;
   min-height: 300px;
   background-color: rgb(98, 148, 172);
-  min-width: 350px;
+  min-width: 550px;
 }
 .companies-box .company-card img {
   height: 140px;
@@ -729,21 +769,34 @@ a {
 
 .adsGalleyComponent {
   display: flex;
-}
-
-.adsGalleyComponent {
-  display: flex;
   overflow-x: auto;
   border-bottom: 0.5px black solid;
   padding: 20px;
 }
 
 .advertisement {
-  padding: 10px;
+  padding: 5px 20px;
   margin-right: 10px;
+  background-color: rgb(254, 255, 239);
   padding-top: 50px;
   min-width: 300px;
   box-shadow: 2px 2px 3px rgb(26, 11, 36);
+  border-radius: 10px;
+  position: relative;
+}
+.advertisement h5 {
+  border-bottom: 1px solid black;
+}
+.advertisement p {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.121);
+}
+.advertisement button {
+  position: absolute;
+  bottom: 0;
+  padding: 3px 5px;
+  border-radius: 5px;
+  background-color: rgb(0, 162, 255);
+  margin-bottom: 5px;
 }
 
 @keyframes slideInOut {

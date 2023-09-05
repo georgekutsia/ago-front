@@ -1,5 +1,6 @@
 .companies-box {
   padding: 100px;
+  background-color: rgb(227, 227, 228);
   &-title {
     text-align: center;
     border-bottom: 2px solid$ago-blueLIghtDark;
@@ -37,7 +38,7 @@
     margin: 10px;
     min-height: 300px;
     background-color: $ago-lightBlue;
-    min-width: 350px;
+    min-width: 550px;
     img {
       height: 140px;
       width: fit-content;
@@ -50,9 +51,7 @@
   background-color: $ago-lightBlue;
 }
 
-.adsGalleyComponent {
-  display: flex;
-}
+
 
 .adsGalleyComponent {
   display: flex;
@@ -62,11 +61,28 @@
 }
 
 .advertisement {
-  padding: 10px;
+  padding: 5px 20px;
   margin-right: 10px;
+  background-color: rgb(254, 255, 239);
   padding-top: 50px;
   min-width: 300px;
   box-shadow: 2px 2px 3px $ago-indigoDark;
+  border-radius: 10px;
+  position: relative;
+  h5{
+  border-bottom: 1px solid black;
+  }
+  p{
+   border-bottom: 1px  solid rgba(0, 0, 0, 0.121);
+  }
+  button{
+    position: absolute;
+    bottom: 0;
+    padding: 3px 5px;
+    border-radius: 5px;
+    background-color: rgb(0, 162, 255);
+    margin-bottom: 5px;
+  }
 }
 
 @keyframes slideInOut {

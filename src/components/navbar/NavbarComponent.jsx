@@ -4,7 +4,7 @@ import { Menubar } from "primereact/menubar";
 import { LoggedContext } from '../../shared/contexts/JwtContext';
 import { useNavigate } from 'react-router-dom';
 export default function NavbarComponent() {
-  const { userData, setUserData } = useContext(LoggedContext);
+  const { userData, setUserData, setColorChange } = useContext(LoggedContext);
   const navigation = useNavigate();
 
    const items = [

@@ -280,15 +280,8 @@ export default function UserUpdateForm({ setUpdate }) {
                 {/* Age */}
                 <div className="field">
                   <span className="p-float-label">
-                    <Controller
-                      name="age"
-                      control={control}
-                      rules={{
-                        required: "Nombre es requerido.",
-                        max: {
-                          value: 130,
-                          message:
-                            "Admiramos que siga vivo a esta edad, pero nos preocupa su salud. Descanse",
+                    <Controller name="age" control={control} rules={{   required: "Nombre es requerido.",   
+                    max: {     value: 130,     message:       "Admiramos que siga vivo a esta edad, pero nos preocupa su salud. Descanse",
                         },
                         nim: {
                           value: 12,
@@ -297,20 +290,13 @@ export default function UserUpdateForm({ setUpdate }) {
                         },
                       }}
                       render={({ field, fieldState }) => (
-                        <InputText
-                          id={field.name}
-                          value={userData?.age}
-                          {...field}
-                          className={classNames({
+                        <InputText id={field.name} value={userData?.age} {...field} className={ classNames({
                             "p-invalid": fieldState.invalid,
                           })}
                         />
                       )}
                     />
-                    <label
-                      htmlFor="age"
-                      className={classNames({ "p-error": errors.name })}
-                    >
+                    <label htmlFor="age" className={classNames({ "p-error": errors.name })}>
                       Edad {userData?.age}
                     </label>
                   </span>

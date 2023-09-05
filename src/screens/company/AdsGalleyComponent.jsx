@@ -13,7 +13,7 @@ function AdsGalleyComponent({ addData }) {
           <h5>Se busca {ad?.title}</h5>
           <p>Descripción: {ad?.description}</p>
           <p>Salario: {ad?.salary}</p>
-          <p>Salario: {ad?.salary}</p>
+        <button>Añadir a favoritos</button>
         </div>
       ))}
     </div>

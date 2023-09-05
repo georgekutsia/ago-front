@@ -50,11 +50,7 @@ console.log("data de las compañias",companiesData);
                 <h2 className="card-title">{company.name}</h2>
                 <section className="d-flex">
                   <div>
-                    <img
-                      src={company.logo}
-                      className="card-img-top"
-                      alt={company.name}
-                    />
+                    <img src={company.logo} className="card-img-top" alt={company.name}/>
                   </div>
                   <div className="card-body">
                     <h5 className="card-title">{company.business_name}</h5>

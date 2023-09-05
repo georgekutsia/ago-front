@@ -8,12 +8,13 @@ import { MDBCol, MDBContainer, MDBRow, MDBCard, MDBCardTitle, MDBCardText, MDBCa
 function ProfileScreen() {
   const { userData, setUserData } = useContext(LoggedContext);
   const [userInfo, setUserInfo] = useState([]);
+  const [color, setColor] = useState(true)
   const [mapToggle, setMapToggle] = useState(false);
   const [toggleSpecialization, setToggleSpecialization] = useState(false)
   const [toggleForm, setToggleForm] = useState(false)
   const [update, setUpdate] = useState ()
+ 
   let navigate = useNavigate();
-
   const toggleButtons =  () => {
     setUpdate(false)
     setToggleSpecialization(false)
@@ -49,14 +50,15 @@ function ProfileScreen() {
   console.log("ddd",userInfo)
 
   return (
-    <div className="profile">
+    <div className="profile" style={{backgroundColor:  color ? `rgba(0, 242, 255, 0.129)`:"#070b0c"}}>
       <section className="profile-section" >
       <section className="profile-section-userInfo">
-      <div className="profile-section-userInfo-div" >
-      <MDBContainer>
-        <MDBRow >
-          <MDBCol md="9" lg="7" xl="5" className="mt-5">
-            <MDBCard style={{ borderRadius: '15px' }}>
+      <div className="profile-section-userInfo-div" style={{backgroundColor: color? "":"transparent",border: color? "none":"1px solid white" }} >
+      <MDBContainer >
+      <button className='btn-mode-color'  style={{backgroundColor: color? "":"darkgrey"}}  onClick={()=>setColor(!color)}>{color ? "Modo diurno":"Modo nocturno"}</button>
+        <MDBRow  >
+          <MDBCol md="9" lg="7" xl="5" className="mt-5" >
+            <MDBCard style={{ borderRadius: '15px', backgroundColor: color? "":"transparent", }} >
               <MDBCardBody className="p-1">
                 <div className="d-flex text-black">
                   <div className="flex-shrink-0 ">
@@ -102,19 +104,19 @@ function ProfileScreen() {
     </div>
         <div className='ulInfo'>
           <ul className='ulInfo-profile'>
-            <li><Link  ><i className="fa-solid fa-users prof-btn"></i></Link></li>
-            <li><Link onClick={()=>{toggleButtons(); setToggleForm(true)}}><i className="fa-solid fa-comments prof-btn"></i></Link></li>
-            <li><Link onClick={()=>{toggleButtons(); setToggleSpecialization(true)}}><i className="fa-solid fa-briefcase prof-btn"></i></Link></li>
-            <li><Link  onClick={()=>{toggleButtons(); setUpdate(true)}}><i className="fa-solid fa-pencil prof-btn"></i></Link></li>
-            <li><Link  onClick={()=>{toggleButtons(); setMapToggle(true)}}><i className="fa-solid fa-map prof-btn"></i></Link></li>
+            <li><Link  ><i className="fa-solid fa-users prof-btn"  style={{color: color? "":"lightgrey"}}></i></Link></li>
+            <li><Link onClick={()=>{toggleButtons(); setToggleForm(true)}}><i className="fa-solid fa-comments prof-btn" style={{color: color? "":"lightgrey"}}></i></Link></li>
+            <li><Link onClick={()=>{toggleButtons(); setToggleSpecialization(true)}}><i className="fa-solid fa-briefcase prof-btn" style={{color: color? "":"lightgrey"}}></i></Link></li>
+            <li><Link  onClick={()=>{toggleButtons(); setUpdate(true)}}><i className="fa-solid fa-pencil prof-btn" style={{color: color? "":"lightgrey"}}></i></Link></li>
+            <li><Link  onClick={()=>{toggleButtons(); setMapToggle(true)}}><i className="fa-solid fa-map prof-btn" style={{color: color? "":"lightgrey"}}></i></Link></li>
         </ul>
         <div className='ulInfo-scrollable'>
       {toggleSpecialization && userInfo.specialization &&  userInfo.specialization.map((spec, index) =>
-        (  <div key={index} className='d-flex' data-aos="zoom-out-right">
+        (  <div style={{marginTop:"20px"}} key={index} className='d-flex' data-aos="zoom-out-right">
             <img src={spec.img} alt={spec.name} width={30} height={30} />
-            <div>
-            <h5>{spec.name}</h5>
-            <p>{spec.description}</p>
+            <div >
+            <h5 style={{color: color? "":"lightgrey"}}>{spec.name}</h5>
+            <p style={{color: color? "":"lightgrey"}}>{spec.description}</p>
             </div>
             </div>)) }
             {mapToggle &&
@@ -124,13 +126,14 @@ function ProfileScreen() {
       {toggleForm &&userInfo.petitions &&  userInfo.petitions.map((spec, index) =>
         (  <div key={index} className='ulInfo-scrollable-box'>
               <div  className='ulInfo-scrollable-form'>
-                  <p> {spec.confirmed ? <i style={{color:"orange"}} class="fa-solid fa-circle-check"></i>:<i style={{color:"grey"}} class="fa-solid fa-question"></i>}      <span style={{color:"blue"}}>{index}</span> -Fecha:{formatearFecha(spec.day)}</p>
-                  <p>Dirección: {spec.direction}</p>
+                  <p style={{color: color? "":"lightgrey"}}> {spec.confirmed ? <i style={{color:"orange"}} class="fa-solid fa-circle-check"></i>:<i style={{color:"grey"}} class="fa-solid fa-question"></i>}      <span style={{color:"blue"}}>{index}</span> -Fecha:{formatearFecha(spec.day)}</p>
+                  <p style={{color: color? "":"lightgrey"}}>Dirección: {spec.direction}</p>
                     {spec.hours &&  spec.hours.map((ho, index) =>
-                    <p>{ho.split("-").join(", ")}</p>
+                    <p style={{color: color? "":"lightgrey"}}>{ho.split("-").join(", ")}</p>
                     )}
                 </div>
-                    <div className='ulInfo-scrollable-note'> {spec.note}</div>
+                    <div className='ulInfo-scrollable-note' style={{color: color? "":"lightgrey"}}>  {spec.note}</div>
+                    <button  className='btn-confirm-1'>Confrimar petición</button><button className='btn-confirm-2'>Cerrar petición </button>
                   </div>
             )) }
         </div>
