@@ -1,0 +1,92 @@
+.homeAGO{
+  background-color: rgb(255, 227, 191);
+  text-align: center;
+  width: 100vw;
+  height: 100vh;
+  color: black;
+  font-family: 'Acme', serif;
+  .video-back{
+    width: 100vw;
+    margin-left: -50vw;
+    position: fixed; 
+  }
+  .absolute-position{
+    position: absolute;
+    top: 150px;
+    text-align: center;
+    left: 20vw;
+    padding:0px 50px;
+    z-index: 90;
+    backdrop-filter: blur(4px);
+  text-shadow: 2px 2px 10px rgb(255, 255, 255);
+  &-div1{
+    width: 1100px;
+  }
+
+  }
+  .h2-ago{
+    font-size: 100px;
+  text-shadow: 2px 2px 10px rgb(255, 255, 255);
+
+  }
+  .p-ago{
+  }
+}
+.videos4{
+  display: flex;
+  gap: 250px;
+  margin-top: 100px;
+  div{
+    max-width: 350px;
+    background-color: rgba(234, 233, 231, 0.968);
+    padding: 20px;
+    border-radius: 10px;
+    video{
+      width: 300px;
+    }
+  }
+}
+.v2v{
+  margin-top: 260px;
+}
+.v3v{
+  margin-bottom: 260px;
+}
+.section-bottom-home{
+  width: 900px;
+  background-color: rgba(234, 233, 231, 0.968);
+  padding:30px;
+  border-radius: 10px;
+  margin: 200px 0px;
+}
+.i-home{
+  font-size: 50px;
+  margin-inline: 30px;
+}
+.h2-ago-reg{
+  font-size: 90px;
+  left: 44%;
+  padding-top: 240px;
+  position: absolute;
+text-shadow: 2px 2px 19px white;
+}
+.background-width{
+  text-shadow: none;
+  width: 100vw;
+margin-left: -24vw ;
+margin-top: 100px;
+display: flex;
+justify-content: space-evenly;
+align-items: center;
+gap: 10px;
+&-div{
+  background-color: rgba(234, 233, 231, 0.968);
+padding: 10px 30px;
+border-radius: 15px;
+
+  img{
+    height: 200px;
+    border-radius: 15px;
+  }
+}
+}

@@ -3,36 +3,68 @@
   display: flex;
   justify-content: space-between;
   padding: 10vh 5vw; 
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(255, 183, 0, 0.048);
   &-section{
-  display: flex;
+    display: flex;
     justify-content: space-between;
     &-userInfo{
+      &-div{
+        background-color: red;
+        background-color: #9de2ff; 
+        padding: 20px; 
+        min-width: 400px; 
+        border-radius:10px; 
+      }
+      width: 299px;
+      display: flex;
+      justify-content: space-between;
+      width: 90vw;
       &-img{
         width:100px;
         border-radius: 10px;
       }
-      display: flex;
-      justify-content: space-between;
-      width: 90vw;
       .ulInfo{
-          border-bottom: 2px solid black;
-          &-profile{
-            gap: 4vw;
-              position: relative;
-              display: flex;
-              padding: 0px;
-              justify-content: center;
-             li {
+        border-bottom: 2px solid black;
+        &-scrollable{
+          max-height: 350px;
+          max-width: 700px;
+          white-space: nowrap;
+          overflow-y: scroll;
+          overflow-x: scroll;
+          &-box{
+            border-bottom: 1px solid black;
+            border-left: 1px solid black;
+            padding: 2px 4px;
+          }
+          &-form{
+            display: flex;
+            gap: 20px;
+            padding: 5px;
+          }
+          &-note{
+            box-shadow: 1px 1px 2px black;
+            padding: 3px 10px ;
+          }
+        }
+        &-profile{
+          gap: 4vw;
+          position: relative;
+          display: flex;
+          padding: 0px;
+          justify-content: center;
+              li {
               position: relative;
               list-style: none;
               margin: 0 20px;
-              cursor: pointer;
               padding: 9px 0px;
+              cursor: pointer;
             }
-             li a {
+            li a {
               text-decoration: none;
             }
-             li a .prof-btn {
+            li a .prof-btn {
               font-size: 2.3rem;
               color: #222;
             }
@@ -55,6 +87,7 @@
               -webkit-background-clip: text;
                -webkit-text-fill-color: transparent;
               border-bottom: 4px solid black;
+              
             }
              li:nth-child(2) a::before {
               content: "\f086";
@@ -64,7 +97,7 @@
               -webkit-background-clip: text;
                -webkit-text-fill-color: transparent;
                border-bottom: 4px solid black;
-            
+              
             }
              li:nth-child(3) a::before {
               content: "\f0b1";
@@ -74,6 +107,7 @@
               -webkit-background-clip: text;
                -webkit-text-fill-color: transparent;
                border-bottom: 4px solid black;
+              
             }
              li:nth-child(4) a::before {
               content: "\f040";
@@ -83,6 +117,7 @@
               -webkit-background-clip: text;
                -webkit-text-fill-color: transparent;
                border-bottom: 4px solid black;
+              
             }
              li:nth-child(5) a::before {
               content: "\f279";
@@ -97,14 +132,35 @@
               height: 100%;
             
             }
-
-
-
           }
         }
       }
     }
 }
-
+@media screen and (max-width: 765px) {
+  .profile{
+    padding: 0px;
+    margin: 0px;
+  }
+  .profile-section-userInfo{
+    display: block;
+    &-div{
+    background-color: rgba(255, 0, 0, 0); 
+    padding: 0px; 
+    margin: 0px;
+    max-width: 200px; 
+    border-radius:10px; 
+  }
+.ulInfo{
+  margin-top: 50px;
+  overflow-x: scroll;
+  &-profile{
+    gap: 2px;
+    padding: 10px 50px;
+    width: 450px;
+  }
+}
+  }
+}
 
 

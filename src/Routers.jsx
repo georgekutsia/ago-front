@@ -4,6 +4,7 @@ import { CompanyScreen, HomeScreen, ProfileScreen, UsersScreen, FormScreen } fro
 import RequireAuth  from "./shared/components/RequireAuth/RequireAuth.jsx";
 import { LoggedContext } from './shared/contexts/JwtContext.js';
 import Confirm from './components/confirm/Confirm.jsx';
+import Error404 from './screens/error/Error404.jsx';
 
 function Routers() {
   const { userData, setUserData } = useContext(LoggedContext);
@@ -23,6 +24,8 @@ function Routers() {
           <Route path="/company/:id" element={<HomeScreen/>} /> {/*Edit de company*/}
           <Route path="/jobs" element={<HomeScreen/>} /> {/*Lista de los trabajadores para filtrar por ellos, ver anuncios etc*/}
           <Route path="/form/:id/:worker" element={<FormScreen/>} /> {/*Forms*/}
+          <Route path="*" element={<Error404/>} /> {/*Forms*/}
+
         </Routes></div>
   )
 }

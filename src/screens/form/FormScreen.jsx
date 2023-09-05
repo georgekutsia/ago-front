@@ -48,6 +48,7 @@ export default function FormScreen({ setUpdate }) {
       data.hours = hours;
       data.confirmed = false;
       data.closed = false;
+      // navigation("/profile")
       const response = await postForm(id, worker, data); 
       console.log("Respuesta de registro:", response);
     } catch (error) {

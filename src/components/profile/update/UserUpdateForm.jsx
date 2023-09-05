@@ -92,6 +92,7 @@ export default function UserUpdateForm({ setUpdate }) {
 
   const onSubmit = async (data) => {
     data.specialization = typeSpecialization;
+    data.confirmed = true;
     try {
       setFormData(data);
       setShowMessage(true);
@@ -109,14 +110,12 @@ export default function UserUpdateForm({ setUpdate }) {
   };
 
   return (
-    <section className="updateUser">
-      <form
-        className="registerForm formDemoUpdateUser"
-        onSubmit={handleSubmit(onSubmit)}
-      >
-        <div className="flex justify-content-center">
-          <div className="card">
-            <h3 className="text-center">Actualiza tus datos</h3>
+    <section className="updateUser" >
+      <form className="registerForm formDemoUpdateUser" onSubmit={handleSubmit(onSubmit)}>
+        <div className="flex justify-content-center " >
+          <div className="card ">
+            <button type="button"  className="formDemoUpdateUser-div" onClick={()=>setUpdate(false)}>Ocultar </button>
+            <h3 className="text-center formDemoUpdateUser-div">Actualiza tus datos</h3>
             <div className="p-fluid">
               {/* name */}
               {/* name */}
@@ -196,7 +195,7 @@ export default function UserUpdateForm({ setUpdate }) {
                   >
                     Imagen del perfil
                   </label>
-                  <div className="card flex justify-content-center">
+                  {/* <div className="card flex justify-content-center">
                     <FileUpload
                             mode="basic"
                             name="baptism_certificate"
@@ -206,7 +205,7 @@ export default function UserUpdateForm({ setUpdate }) {
                             chooseLabel="Browse"
                             maxFileSize={1000000}
                           />
-                  </div>
+                  </div> */}
                 </span>
                 {getFormErrorMessage("img")}
               </div>

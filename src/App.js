@@ -17,10 +17,10 @@ function App() {
     localStorage.getItem("token") || false
   );
   const [currentLocation, setCurrentLocation] = useState({});
-  const [hidden, setHidden] = useState(true);
+  const [hidden, setHidden] = useState(false);
 
   useEffect(() => {
-    getLocation();
+    // getLocation();
   }, []);
 
   const getLocation = async () => {
@@ -30,19 +30,11 @@ function App() {
 
   return (
     <LoggedContext.Provider
-      value={{
-        userData,
-        setUserData,
-        jwtData,
-        setJwtData,
-        setHidden,
-        currentLocation,
-        setCurrentLocation,
-        getLocation,
+      value={{ userData, setUserData, jwtData, setJwtData, setHidden, currentLocation, setCurrentLocation, getLocation,
       }}
     >
       <div className="App">
-        {hidden && <NavbarComponent></NavbarComponent>}
+         <NavbarComponent></NavbarComponent>
         <Routers />
         {hidden && <FooterComponent></FooterComponent>}
       </div>
