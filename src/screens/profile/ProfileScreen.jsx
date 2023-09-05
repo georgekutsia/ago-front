@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { deleteUser, logout } from '../../shared/services/api';
 import { LoggedContext } from '../../shared/contexts/JwtContext';
-import { ButtonComponentEdit, MapView, UserUpdateForm } from '../../components';
+import {  MapView, UserUpdateForm } from '../../components';
 import { getOneUser } from '../../shared/services/api';
 import { Link, useNavigate } from 'react-router-dom';
 import { MDBCol, MDBContainer, MDBRow, MDBCard, MDBCardTitle, MDBCardText, MDBCardBody, MDBCardImage, MDBBtn } from 'mdb-react-ui-kit';
@@ -11,9 +11,16 @@ function ProfileScreen() {
   const [mapToggle, setMapToggle] = useState(false);
   const [toggleSpecialization, setToggleSpecialization] = useState(false)
   const [toggleForm, setToggleForm] = useState(false)
+  const [update, setUpdate] = useState ()
   let navigate = useNavigate();
 
-  const [update, setUpdate] = useState ()
+  const toggleButtons =  () => {
+    setUpdate(false)
+    setToggleSpecialization(false)
+    setToggleForm(false)
+    setMapToggle(false)
+  }
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -39,12 +46,13 @@ function ProfileScreen() {
       console.error("Error deleting user:", error);
     }
   };
-  
+  console.log("ddd",userInfo)
+
   return (
     <div className="profile">
       <section className="profile-section" >
       <section className="profile-section-userInfo">
-      <div  style={{ backgroundColor: '#9de2ff', padding: "30px" }}>
+      <div className="profile-section-userInfo-div" >
       <MDBContainer>
         <MDBRow >
           <MDBCol md="9" lg="7" xl="5" className="mt-5">
@@ -54,7 +62,7 @@ function ProfileScreen() {
                   <div className="flex-shrink-0 ">
                     <MDBCardImage className="profile-section-userInfo-img" src={userInfo?.img} alt='Generic placeholder image' fluid />
                   </div>
-                  <div className="flex-grow-1 ms-3">
+                  <div className="flex-grow-1 ms-4">
                     <MDBCardTitle McLoa>{userInfo?.name}</MDBCardTitle>
                     <MDBCardText>{userInfo?.age} años</MDBCardText>
                     <div className="d-flex justify-content-start rounded-3 p-2 mb-2"
@@ -95,11 +103,12 @@ function ProfileScreen() {
         <div className='ulInfo'>
           <ul className='ulInfo-profile'>
             <li><Link  ><i className="fa-solid fa-users prof-btn"></i></Link></li>
-            <li><Link onClick={()=>setToggleForm(!toggleForm)}><i className="fa-solid fa-comments prof-btn"></i></Link></li>
-            <li><Link onClick={()=>setToggleSpecialization(!toggleSpecialization)}><i className="fa-solid fa-briefcase prof-btn"></i></Link></li>
-            <li><Link  onClick={()=>setUpdate(!update)}><i className="fa-solid fa-pencil prof-btn"></i></Link></li>
-            <li><Link  onClick={()=>setMapToggle(!mapToggle)}><i className="fa-solid fa-map prof-btn"></i></Link></li>
+            <li><Link onClick={()=>{toggleButtons(); setToggleForm(true)}}><i className="fa-solid fa-comments prof-btn"></i></Link></li>
+            <li><Link onClick={()=>{toggleButtons(); setToggleSpecialization(true)}}><i className="fa-solid fa-briefcase prof-btn"></i></Link></li>
+            <li><Link  onClick={()=>{toggleButtons(); setUpdate(true)}}><i className="fa-solid fa-pencil prof-btn"></i></Link></li>
+            <li><Link  onClick={()=>{toggleButtons(); setMapToggle(true)}}><i className="fa-solid fa-map prof-btn"></i></Link></li>
         </ul>
+        <div className='ulInfo-scrollable'>
       {toggleSpecialization && userInfo.specialization &&  userInfo.specialization.map((spec, index) =>
         (  <div key={index} className='d-flex' data-aos="zoom-out-right">
             <img src={spec.img} alt={spec.name} width={30} height={30} />
@@ -108,29 +117,39 @@ function ProfileScreen() {
             <p>{spec.description}</p>
             </div>
             </div>)) }
+            {mapToggle &&
+        <MapView setLatitude={userData?.map?.x} setLenght={userData?.map?.y}/>
+      }
+            {/* scrollable de form */}
+      {toggleForm &&userInfo.petitions &&  userInfo.petitions.map((spec, index) =>
+        (  <div key={index} className='ulInfo-scrollable-box'>
+              <div  className='ulInfo-scrollable-form'>
+                  <p> {spec.confirmed ? <i style={{color:"orange"}} class="fa-solid fa-circle-check"></i>:<i style={{color:"grey"}} class="fa-solid fa-question"></i>}      <span style={{color:"blue"}}>{index}</span> -Fecha:{formatearFecha(spec.day)}</p>
+                  <p>Dirección: {spec.direction}</p>
+                    {spec.hours &&  spec.hours.map((ho, index) =>
+                    <p>{ho.split("-").join(", ")}</p>
+                    )}
+                </div>
+                    <div className='ulInfo-scrollable-note'> {spec.note}</div>
+                  </div>
+            )) }
+        </div>
+            {/* scrollable de form */}
+
+            <section >
+        {update && <UserUpdateForm setUpdate={setUpdate} ></UserUpdateForm>}
+      </section>
         </div>
           <div>
           </div>
       </section>
-      { userInfo.comments &&  userInfo.comments.map((spec, index) =>
+      { userInfo.comments &&  userInfo?.comments?.map((spec, index) =>
         (  <div key={index} className='d-flex'>
             <p>{spec.text}</p>
             </div>)) }
-      {toggleForm &&userInfo.petitions &&  userInfo.petitions.map((spec, index) =>
-        (  <div key={index} className='d-flex'>
-            <p>{formatearFecha(spec.day)}</p>
-            <p>{spec.direction}</p>
-                {spec.hours &&  spec.hours.map((ho, index) =>
-                <p>{ho.split("-").join(", ")}</p>
-                )}
-            </div>)) }
-      {mapToggle &&
-        <MapView setLatitude={userData?.map?.x} setLenght={userData?.map?.y}/>
-      }
+
       </section>
-      <section>
-        {update && <UserUpdateForm setUpdate={setUpdate}></UserUpdateForm>}
-      </section>
+
     </div>
   );
 }

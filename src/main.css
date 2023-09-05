@@ -88,7 +88,7 @@ a {
 .navbar {
   position: fixed;
   width: 100%;
-  z-index: 30;
+  z-index: 90;
 }
 
 .disconect-btn {
@@ -199,7 +199,7 @@ a {
   margin: auto;
   position: fixed;
   bottom: 0;
-  width: 100%;
+  width: 100vw;
   z-index: 90;
 }
 
@@ -208,7 +208,7 @@ a {
   justify-content: center;
 }
 .buttonToggleLogReg-btn {
-  z-index: 400;
+  z-index: 40;
 }
 
 .button-89 {
@@ -261,16 +261,18 @@ a {
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  width: 430px;
   justify-content: center;
-  margin: 20px;
   position: absolute;
-  right: 0;
   top: 150px;
+  padding-bottom: 100px;
 }
 .updateUser .double-input {
   display: flex;
   justify-content: space-evenly;
+}
+
+.formDemoUpdateUser-div {
+  padding: 14px;
 }
 
 .formDemoUpdateUser .card {
@@ -288,20 +290,25 @@ a {
 
 @media screen and (max-width: 960px) {
   .formDemoUpdateUser .card {
-    width: 80%;
+    width: 100%;
     padding: 0px;
   }
 }
 @media screen and (max-width: 640px) {
   .formDemo .card {
     width: 100%;
-    min-width: 300px;
+    min-width: 100px;
     padding: 0vw;
+  }
+  .updateUser .card {
+    width: 100vw;
+    margin-top: 330px;
+    margin-bottom: 60px;
   }
 }
 .leaflet-container {
-  width: 30vw;
-  height: 30vh;
+  width: 60vw;
+  height: 50vh;
 }
 
 .mapper {
@@ -321,20 +328,126 @@ a {
   padding-top: 40vh;
 }
 
+.homeAGO {
+  background-color: rgb(255, 227, 191);
+  text-align: center;
+  width: 100vw;
+  height: 100vh;
+  color: black;
+  font-family: "Acme", serif;
+}
+.homeAGO .video-back {
+  width: 100vw;
+  margin-left: -50vw;
+  position: fixed;
+}
+.homeAGO .absolute-position {
+  position: absolute;
+  top: 150px;
+  text-align: center;
+  left: 20vw;
+  padding: 0px 50px;
+  z-index: 90;
+  -webkit-backdrop-filter: blur(4px);
+          backdrop-filter: blur(4px);
+  text-shadow: 2px 2px 10px rgb(255, 255, 255);
+}
+.homeAGO .absolute-position-div1 {
+  width: 1100px;
+}
+.homeAGO .h2-ago {
+  font-size: 100px;
+  text-shadow: 2px 2px 10px rgb(255, 255, 255);
+}
+.videos4 {
+  display: flex;
+  gap: 250px;
+  margin-top: 100px;
+}
+.videos4 div {
+  max-width: 350px;
+  background-color: rgba(234, 233, 231, 0.968);
+  padding: 20px;
+  border-radius: 10px;
+}
+.videos4 div video {
+  width: 300px;
+}
+
+.v2v {
+  margin-top: 260px;
+}
+
+.v3v {
+  margin-bottom: 260px;
+}
+
+.section-bottom-home {
+  width: 900px;
+  background-color: rgba(234, 233, 231, 0.968);
+  padding: 30px;
+  border-radius: 10px;
+  margin: 200px 0px;
+}
+
+.i-home {
+  font-size: 50px;
+  margin-inline: 30px;
+}
+
+.h2-ago-reg {
+  font-size: 90px;
+  left: 44%;
+  padding-top: 240px;
+  position: absolute;
+  text-shadow: 2px 2px 19px white;
+}
+
+.background-width {
+  text-shadow: none;
+  width: 100vw;
+  margin-left: -24vw;
+  margin-top: 100px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 10px;
+}
+.background-width-div {
+  background-color: rgba(234, 233, 231, 0.968);
+  padding: 10px 30px;
+  border-radius: 15px;
+}
+.background-width-div img {
+  height: 200px;
+  border-radius: 15px;
+}
+
 .profile {
   padding-top: 160px;
   display: flex;
   justify-content: space-between;
   padding: 10vh 5vw;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(255, 183, 0, 0.048);
 }
 .profile-section {
   display: flex;
   justify-content: space-between;
 }
 .profile-section-userInfo {
+  width: 299px;
   display: flex;
   justify-content: space-between;
   width: 90vw;
+}
+.profile-section-userInfo-div {
+  background-color: red;
+  background-color: #9de2ff;
+  padding: 20px;
+  min-width: 400px;
+  border-radius: 10px;
 }
 .profile-section-userInfo-img {
   width: 100px;
@@ -342,6 +455,27 @@ a {
 }
 .profile-section-userInfo .ulInfo {
   border-bottom: 2px solid black;
+}
+.profile-section-userInfo .ulInfo-scrollable {
+  max-height: 350px;
+  max-width: 700px;
+  white-space: nowrap;
+  overflow-y: scroll;
+  overflow-x: scroll;
+}
+.profile-section-userInfo .ulInfo-scrollable-box {
+  border-bottom: 1px solid black;
+  border-left: 1px solid black;
+  padding: 2px 4px;
+}
+.profile-section-userInfo .ulInfo-scrollable-form {
+  display: flex;
+  gap: 20px;
+  padding: 5px;
+}
+.profile-section-userInfo .ulInfo-scrollable-note {
+  box-shadow: 1px 1px 2px black;
+  padding: 3px 10px;
 }
 .profile-section-userInfo .ulInfo-profile {
   gap: 4vw;
@@ -354,8 +488,8 @@ a {
   position: relative;
   list-style: none;
   margin: 0 20px;
-  cursor: pointer;
   padding: 9px 0px;
+  cursor: pointer;
 }
 .profile-section-userInfo .ulInfo-profile li a {
   text-decoration: none;
@@ -413,6 +547,31 @@ a {
   height: 100%;
 }
 
+@media screen and (max-width: 765px) {
+  .profile {
+    padding: 0px;
+    margin: 0px;
+  }
+  .profile-section-userInfo {
+    display: block;
+  }
+  .profile-section-userInfo-div {
+    background-color: rgba(255, 0, 0, 0);
+    padding: 0px;
+    margin: 0px;
+    max-width: 200px;
+    border-radius: 10px;
+  }
+  .profile-section-userInfo .ulInfo {
+    margin-top: 50px;
+    overflow-x: scroll;
+  }
+  .profile-section-userInfo .ulInfo-profile {
+    gap: 2px;
+    padding: 10px 50px;
+    width: 450px;
+  }
+}
 .companies-box {
   padding: 100px;
 }
@@ -624,6 +783,22 @@ a {
   width: 500px;
   margin: auto;
   padding-top: 20vh;
+}
+
+.error404 {
+  background-color: black;
+  height: 100vh;
+  width: 100vw;
+  text-align: center;
+  padding-top: 100px;
+}
+.error404 img {
+  width: 60vw;
+  height: auto;
+}
+.error404 p {
+  color: white;
+  font-size: 24px;
 }
 
 .usersScreen {

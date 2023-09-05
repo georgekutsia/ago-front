@@ -62,7 +62,7 @@ function UsersScreen() {
         <label htmlFor="specializationFilter">Filtrar por especialización:</label>
         <select id="specializationFilter" value={specializationFilter} onChange={handleSpecializationFilterChange}>
           <option value={emptySpec}>Todos</option>
-          {filteredUsers.map((user)=>user?.specialization.map((spec,index) =>
+          {filteredUsers.map((user)=>user?.specialization?.map((spec,index) =>
           <option key={index} value={spec.name}>{spec.name}</option>
           ))}
         </select>
@@ -77,7 +77,7 @@ function UsersScreen() {
           {/* es feo que se vea la dirección completa, pero sí al menos la ciudad, así que esto apaña que de  Calle del Sol, 78, Valencia solo se vea Valencia*/}
           <div className='usersScreen-section-divInfo' data-aos="fade-down" data-aos-easing="ease-in-out" data-aos-duration="500" >
             {user.address && <h3> <i className="fa-solid fa-location-dot"></i>  {user.address.split(",").pop().trim()}</h3>}
-            <h3> {user.specialization.map((spec, index) => (
+            <h3> {user.specialization?.map((spec, index) => (
               <div key={index} className='d-flex'>
                 <img src={spec.img} alt={spec.name} width={30} />
                 <h5>{spec.name}</h5>

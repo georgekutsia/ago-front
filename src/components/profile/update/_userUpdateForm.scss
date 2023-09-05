@@ -3,22 +3,28 @@
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    width: 430px;
     justify-content: center;
-    margin: 20px;
     position: absolute;
-    right: 0;
     top: 150px;
+    padding-bottom: 100px;
     .double-input{
+        
         display: flex;
         justify-content: space-evenly;
     }
 }
+.formDemoUpdateUser{
+    &-div{
+        padding: 14px;
+    }
+}
 .formDemoUpdateUser .card {
+    
     min-width: 100px;
     background-color: $ago-greenLog;
 }
 .formDemoUpdateUser .card form {
+    
     margin-top: 2rem;
 }
 .formDemoUpdateUser .card .field {
@@ -26,15 +32,20 @@
 }
 @media screen and (max-width: 960px) {
     .formDemoUpdateUser .card {
-        width: 80%;
+        width: 100%;
         padding: 0px;
     }
 }
 @media screen and (max-width: 640px) {
     .formDemo .card {
         width: 100%;
-        min-width: 300px;
+        min-width: 100px;
         padding: 0vw;
         
+    }
+    .updateUser .card {
+        width: 100vw;
+        margin-top: 330px;
+        margin-bottom: 60px;
     }
 }
